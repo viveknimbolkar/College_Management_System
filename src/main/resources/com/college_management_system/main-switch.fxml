@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.college_management_system.MainSectionController">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #161032;" GridPane.rowIndex="1">
+            <GridPane.margin>
+               <Insets left="10.0" right="10.0" />
+            </GridPane.margin>
+            <Button fx:id="adminBtn" layoutX="34.0" layoutY="74.0" mnemonicParsing="false" onAction="#adminSection" text="Admin Section" />
+            <ImageView fitHeight="65.0" fitWidth="65.0" layoutX="58.0" layoutY="5.0" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@images/admin.png"/>
+            </ImageView>
+         </Pane>
+         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #A50104;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <GridPane.margin>
+               <Insets left="10.0" right="10.0" />
+            </GridPane.margin>
+            <Button fx:id="studentBtn" layoutX="29.0" layoutY="73.0" mnemonicParsing="false" onAction="#studentSection" text="Student Section" />
+            <ImageView fitHeight="53.0" fitWidth="57.0" layoutX="69.0" layoutY="10.0" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@images/student.png"/>
+            </ImageView>
+         </Pane>
+         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FCBA04;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <GridPane.margin>
+               <Insets left="10.0" right="10.0" />
+            </GridPane.margin>
+            <Button fx:id="employeeBtn" layoutX="25.0" layoutY="74.0" mnemonicParsing="false" onAction="#employeeSection" text="Employee Section" />
+            <ImageView fitHeight="60.0" fitWidth="58.0" layoutX="65.0" layoutY="8.0" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@images/employee.png"/>
+            </ImageView>
+         </Pane>
+      </GridPane>
+   </center>
+   <top>
+      <FlowPane prefHeight="61.0" prefWidth="600.0" style="-fx-background-color: #2b4162;" BorderPane.alignment="CENTER">
+         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+            <FlowPane.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </FlowPane.margin>
+            <Image url="@images/clg-logo.png" />
+         </ImageView>
+         <Label text="Sipna Colllege of Engineering &amp; Technology" textFill="WHITE">
+            <font>
+               <Font size="21.0" />
+            </font>
+         </Label>
+      </FlowPane>
+   </top>
+</BorderPane>

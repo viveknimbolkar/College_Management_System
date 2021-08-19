@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <Label text="FIND ADMINISTRATOR" BorderPane.alignment="CENTER">
@@ -49,10 +48,10 @@
                   </Button>
                </children>
             </HBox>
-            <TableView prefHeight="285.0" prefWidth="600.0">
+            <TableView prefHeight="422.0" prefWidth="900.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn prefWidth="267.0" text="Name" />
+                <TableColumn prefWidth="383.0" text="Details" />
               </columns>
             </TableView>
             <Button mnemonicParsing="false" style="-fx-background-color: #2b4160;" text="Save as file" textFill="WHITE">

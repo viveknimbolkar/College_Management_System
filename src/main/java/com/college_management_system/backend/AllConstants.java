@@ -1,5 +1,9 @@
 package com.college_management_system.backend;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ToggleGroup;
+
 public class AllConstants {
 
     //defines the position of stage on screen
@@ -18,5 +22,52 @@ public class AllConstants {
     public final int MAIN_SWITCH_WIDTH = 600;
     public final int MAIN_SWITCH_HEIGHT = 400;
     //size of main-switch.fxml i.e. Main section
+
+    //list of all categories
+    public ObservableList<String> getCategories(){
+
+      return FXCollections.observableArrayList(
+              "OBC",
+              "OPEN",
+              "EWS",
+              "SC",
+              "ST",
+              "OTHER"
+      );
+    }
+
+    //List of all states
+    public ObservableList<String> getStateList(){
+
+        return FXCollections.observableArrayList(
+                "Andhra Pradesh",
+                "Arunachal Pradesh",
+                "Assam",
+                "Bihar",
+                "Chhattisgarh",
+                "Goa","Gujarat",
+                "Haryana",
+                "Himachal Pradesh",
+                "Jharkhand",
+                "Karnataka",
+                "Kerala",
+                "Madhya Pradesh",
+                "Maharashtra",
+                "Manipur",
+                "Meghalaya",
+                "Mizoram",
+                "Nagaland",
+                "Odisha",
+                "Punjab",
+                "Rajasthan",
+                "Sikkim",
+                "Tamil Nadu",
+                "Telangana",
+                "Tripura",
+                "Uttar Pradesh",
+                "Uttarakhand",
+                "West Bengal"
+        );
+    }
 
 }

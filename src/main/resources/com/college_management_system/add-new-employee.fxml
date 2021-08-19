@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.college_management_system.AddNewEmployeeController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
          <columnConstraints>
@@ -38,7 +38,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="35.0">
+            <TextField fx:id="firstname" prefHeight="35.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -48,7 +48,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="35.0">
+            <TextField fx:id="email" prefHeight="35.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -58,7 +58,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="35.0">
+            <TextField fx:id="city" prefHeight="35.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -68,7 +68,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="35.0">
+            <TextField fx:id="taluka" prefHeight="35.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -78,7 +78,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <DatePicker prefHeight="35.0">
+            <DatePicker fx:id="dob" prefHeight="35.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -88,17 +88,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="35.0">
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </VBox.margin>
-            </TextField>
-            <Label prefHeight="30.0" text="MHT-CET Percentile:">
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </VBox.margin>
-            </Label>
-            <TextField prefHeight="35.0">
+            <TextField fx:id="employeeid" prefHeight="35.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -137,7 +127,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="30.0">
+            <TextField fx:id="lastname" prefHeight="30.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -147,7 +137,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="30.0">
+            <TextField fx:id="homeaddress" prefHeight="30.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -157,7 +147,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="30.0">
+            <TextField fx:id="country" prefHeight="30.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -167,7 +157,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="30.0">
+            <TextField fx:id="cast" prefHeight="30.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -177,7 +167,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="30.0">
+            <TextField fx:id="pincode" prefHeight="30.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -187,7 +177,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <ChoiceBox prefWidth="150.0">
+            <ChoiceBox fx:id="category" prefWidth="150.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -197,7 +187,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <ChoiceBox prefWidth="150.0">
+            <ChoiceBox fx:id="state" prefWidth="150.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -209,7 +199,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="30.0">
+            <TextField fx:id="middlename" prefHeight="30.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -219,7 +209,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="30.0">
+            <TextField fx:id="phoneno" prefHeight="30.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -229,7 +219,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="30.0">
+            <TextField fx:id="district" prefHeight="30.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -239,7 +229,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="30.0">
+            <TextField fx:id="qualification" prefHeight="30.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -249,7 +239,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="30.0">
+            <TextField fx:id="yearofexperience" prefHeight="30.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
@@ -259,12 +249,12 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <RadioButton mnemonicParsing="false" prefHeight="30.0" text="Male">
+            <RadioButton fx:id="male" mnemonicParsing="false" prefHeight="30.0" text="Male">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" prefHeight="30.0" text="Female">
+            <RadioButton fx:id="female" mnemonicParsing="false" prefHeight="30.0" text="Female">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>

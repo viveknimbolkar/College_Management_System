@@ -11,6 +11,7 @@ public class AdminSectionController {
     private BorderPane borderPane;
 
     CommonMethods commonMethods = new CommonMethods();
+    SceneLoader sceneLoader = new SceneLoader();
 
     //go back to the main section
     public void goBack(ActionEvent event) throws Exception{
@@ -19,32 +20,24 @@ public class AdminSectionController {
 
     //add admin scene
     public void addAdminView(ActionEvent e) throws Exception{
-        //System.out.println("add admin scene");
-        SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("add-new-admin.fxml");
         borderPane.setCenter(view);
     }
 
     //update admin scene
     public void updateAdminView(ActionEvent e) throws Exception{
-        //System.out.println("update admin scene");
-        SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("update-admin.fxml");
         borderPane.setCenter(view);
     }
 
     //find admin scene
     public void findAdminView(ActionEvent e) throws Exception{
-        //System.out.println("find admin scene");
-        SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("find-admin.fxml");
         borderPane.setCenter(view);
     }
 
     //remove admin scene
     public void removeAdminView(ActionEvent e) throws Exception{
-        //System.out.println("remove admin scene");
-        SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("remove-admin.fxml");
         borderPane.setCenter(view);
     }

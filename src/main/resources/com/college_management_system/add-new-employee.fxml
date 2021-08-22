@@ -267,10 +267,13 @@
          <BorderPane.margin>
             <Insets left="10.0" right="10.0" />
          </BorderPane.margin>
-         <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@images/admin.png" />
+         <ImageView fx:id="employeephoto" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@images/uimg.png" />
          </ImageView>
-         <Button mnemonicParsing="false" text="Choose Photo" textAlignment="CENTER" />
+         <Button mnemonicParsing="false" onAction="#chooseEmployeeImg" text="Choose Photo" textAlignment="CENTER">
+            <VBox.margin>
+               <Insets top="20.0" />
+            </VBox.margin></Button>
       </VBox>
    </right>
    <top>

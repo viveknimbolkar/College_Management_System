@@ -1,6 +1,7 @@
 package com.college_management_system;
 
 import com.college_management_system.backend.AllConstants;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleGroup;
@@ -8,7 +9,14 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,8 +35,27 @@ public class AddNewEmployeeController implements Initializable {
     private RadioButton male,female;
     @FXML
     private BorderPane borderpane;
+    @FXML
+    private ImageView employeephoto;
 
     public void sendDataToAddIntoDB(){
+    }
+
+    File employeeImg;
+
+    public void chooseEmployeeImg(ActionEvent event) throws Exception{
+        FileChooser fileChooser = new FileChooser();
+        //only this type of files are allow
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter(".jpg","*.jpg"),
+                new FileChooser.ExtensionFilter(".jpeg","*.jpeg"),
+                new FileChooser.ExtensionFilter(".png","*.png")
+        );
+        employeeImg = fileChooser.showOpenDialog(null);
+        //setting image to ImageView
+        InputStream inputStream = new FileInputStream(employeeImg);
+        Image image = new Image(inputStream);
+        employeephoto.setImage(image);
     }
 
     AllConstants allConstants = new AllConstants();

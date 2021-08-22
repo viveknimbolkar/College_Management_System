@@ -1,5 +1,6 @@
 package com.college_management_system;
 
+import com.college_management_system.backend.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,9 +11,14 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import com.college_management_system.backend.AllConstants;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 public class CommonMethods {
 
     AllConstants allConstants = new AllConstants();
+    Connection conn = DBConnection.getDBConnection();
 
     Parent root;
     Stage stage;
@@ -20,6 +26,13 @@ public class CommonMethods {
     Pane pane;
 
 //=============GENERAL OPERATIONS======================================================================
+//create a random 6 digit number
+    public int getRandomNumber(){
+        final int minNum = 100000;
+        final int maxNum = 999999;
+        return (int) (Math.random() * (maxNum - minNum+1) + minNum);
+    }
+
     //get the main section window
     public void getMainSectionWindow(ActionEvent e, String fxmlName) throws Exception{
         root = FXMLLoader.load((getClass().getResource(fxmlName)));
@@ -37,11 +50,24 @@ public class CommonMethods {
         }
     }
 
-//=============DATABASE RELATED OPERATIONS===========================================================
-    /*It will perform create operation on MySQL Database
-    It will receive data from admin, student and employee addition page and insert into main database
-     */
-    public void addDataIntoDB(String whoCalledMe, String[] data){
-        System.out.println("addDataIntoDB");
+//=============DATABASE RELATED OPERATIONS=======================================================================
+
+    /*it will check the duplicate entry in main db (admin, student, employee)
+    This method will return true if any duplicate record found in main database else it will return false
+    */
+    public boolean checkForDuplicateEntry(String forUser, String email) throws Exception{
+
+        String query = switch (forUser) {
+            case "admin" -> "SELECT * FROM `admin` WHERE email='" + email + "'";
+            case "student" -> "SELECT * FROM `student` WHERE email='" + email + "'";
+            case "employee" -> "SELECT * FROM `employee` WHERE email='" + email + "'";
+            default -> "";
+        };
+
+        Statement statement = conn.createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+
+        return resultSet.next();
     }
+
 }

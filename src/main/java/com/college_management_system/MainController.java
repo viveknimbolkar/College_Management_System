@@ -25,6 +25,7 @@ public class MainController{
 
     TextInputDialog tid = new TextInputDialog();
     Alert alert = new Alert(Alert.AlertType.NONE);
+    CommonMethods commonMethods = new CommonMethods();
 
     @FXML
     private TextField email;
@@ -62,7 +63,7 @@ public class MainController{
 
 //===============================================================================
 // Uncomment this code to use sms authentication
-//                int otp = getRandomNumber();
+//                int otp = commonMethods.getRandomNumber();
 //                System.out.println(otp);
 //
 //                String otpStr = Integer.toString(otp)+" is your otp for CMS. Please don't share with anyone!";
@@ -77,10 +78,10 @@ public class MainController{
 //                    //IF LOGIN SUCCESSFUL
 //                    //System.out.println("Otp matched! Login successful.");
 //                    //change scene
-//                    Parent root = FXMLLoader.load((getClass().getResource("main-switch.fxml")));
-//                    Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-//                    Scene scene = new Scene(root,600,400);
-//                    stage.setScene(scene);
+//                    Parent root1 = FXMLLoader.load((getClass().getResource("main-switch.fxml")));
+//                    Stage stage1 = (Stage) ((Node) e.getSource()).getScene().getWindow();
+//                    Scene scene1 = new Scene(root,600,400);
+//                    stage.setScene(scene1);
 //                    stage.show();
 //                }else {
 //                    //IF LOGIN FAILS
@@ -88,9 +89,7 @@ public class MainController{
 //                    alert.setAlertType(Alert.AlertType.ERROR);
 //                    alert.setContentText("OTP Not Matched! Please try again.");
 //                }
-
-                //twoStepAuthentication(result.getString(4));
-
+//
 
             }else {
                 //if admin not found
@@ -115,8 +114,4 @@ public class MainController{
         return (int) (Math.random() * (maxNum - minNum+1) + minNum);
     }
 
-//    //two step authentication (Authenticate user on the basis of OTP)
-//    protected void twoStepAuthentication(String adminNumber){
-//
-//    }
 }

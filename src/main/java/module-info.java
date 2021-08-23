@@ -6,4 +6,6 @@ module com.college_management_system {
 
     opens com.college_management_system to javafx.fxml;
     exports com.college_management_system;
+    exports com.college_management_system.backend;
+    opens com.college_management_system.backend to javafx.fxml;
 }

@@ -102,7 +102,9 @@ public class MainController{
             con.close();
 
         }catch (Exception ex){
-            ex.printStackTrace();
+            //ex.printStackTrace();
+            alert.setContentText("Internal Server Error!\n Please try again.");
+            alert.show();
         }
     }
 

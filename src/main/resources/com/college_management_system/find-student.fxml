@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.college_management_system.FindStudentController">
    <top>
       <Label text="FIND STUDENT DETAILS" BorderPane.alignment="CENTER">
          <font>
@@ -28,38 +28,38 @@
          <HBox prefHeight="61.0" prefWidth="600.0">
             <Label prefHeight="21.0" prefWidth="161.0" text="Enter student ID: ">
                <HBox.margin>
-                  <Insets left="220.0" top="20.0"/>
+                  <Insets left="220.0" top="20.0" />
                </HBox.margin>
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font>
             </Label>
-            <TextField prefHeight="40.0" prefWidth="200.0" promptText="Enter student ID...">
+            <TextField fx:id="studentid" prefHeight="40.0" prefWidth="200.0" promptText="Enter student ID...">
                <HBox.margin>
-                  <Insets bottom="10.0" top="10.0"/>
+                  <Insets bottom="10.0" top="10.0" />
                </HBox.margin>
             </TextField>
-            <Button mnemonicParsing="false" prefHeight="40.0" text="Search">
+            <Button mnemonicParsing="false" onAction="#findStudentDetails" prefHeight="40.0" text="Search">
                <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" top="10.0"/>
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
                </HBox.margin>
             </Button>
          </HBox>
-         <TableView prefHeight="285.0" prefWidth="600.0">
+         <TableView fx:id="table" prefHeight="436.0" prefWidth="900.0">
             <columns>
-               <TableColumn prefWidth="75.0" text="C1"/>
-               <TableColumn prefWidth="75.0" text="C2"/>
+               <TableColumn fx:id="name" prefWidth="302.0" text="Name" />
+               <TableColumn fx:id="details" minWidth="0.0" prefWidth="367.0" text="Details" />
             </columns>
          </TableView>
          <Button mnemonicParsing="false" style="-fx-background-color: #2b4160;" text="Save as file" textFill="WHITE">
             <VBox.margin>
-               <Insets left="400.0" top="20.0"/>
+               <Insets left="400.0" top="20.0" />
             </VBox.margin>
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
             <cursor>
-               <Cursor fx:constant="HAND"/>
+               <Cursor fx:constant="HAND" />
             </cursor>
          </Button>
       </VBox>

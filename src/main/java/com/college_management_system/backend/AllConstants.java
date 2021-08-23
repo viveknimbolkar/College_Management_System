@@ -1,5 +1,6 @@
 package com.college_management_system.backend;
 
+import javafx.beans.binding.ObjectExpression;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ToggleGroup;
@@ -34,6 +35,42 @@ public class AllConstants {
               "ST",
               "OTHER"
       );
+    }
+
+    //Years in B.E.
+    public ObservableList<String> getEducationalYearList(){
+        return FXCollections.observableArrayList(
+                "1st Year",
+                "2nd Year",
+                "3rd Year",
+                "4th Year"
+        );
+    }
+
+    //Semeter in B.E.
+    public ObservableList<String> getSemestersList(){
+        return FXCollections.observableArrayList(
+                "1st Semester",
+                "2nd Semester",
+                "3rd Semester",
+                "4th Semester",
+                "5th Semester",
+                "6th Semester",
+                "7th Semester",
+                "8th Semester"
+        );
+    }
+
+    //Branch of Engineering
+    public ObservableList<String> getBranchList(){
+        return FXCollections.observableArrayList(
+                "Computer Science & Engineering",
+                "Information Technology",
+                "Electronics & Telecommunication Engineering",
+                "Mechanical Engineering",
+                "Civil Engineering",
+                "Architecture Engineering"
+        );
     }
 
     //List of all states

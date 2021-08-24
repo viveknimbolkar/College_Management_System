@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.college_management_system.RemoveEmployeeController">
    <top>
       <Label text="REMOVE EXISTING EMPLOYEE" BorderPane.alignment="CENTER">
          <font>
@@ -29,12 +29,12 @@
                <Font size="18.0" />
             </font>
          </Label>
-         <TextField prefHeight="40.0" prefWidth="200.0" promptText="Enter employee ID...">
+         <TextField fx:id="employeeId" prefHeight="40.0" prefWidth="200.0" promptText="Enter employee ID...">
             <HBox.margin>
                <Insets left="10.0" />
             </HBox.margin>
          </TextField>
-         <Button mnemonicParsing="false" prefHeight="40.0" style="-fx-background-color: RED;" text="Remove Employee" textFill="WHITE">
+         <Button mnemonicParsing="false" onAction="#removeEmployeeFromDB" prefHeight="40.0" style="-fx-background-color: RED;" text="Remove Employee" textFill="WHITE">
             <HBox.margin>
                <Insets left="10.0" />
             </HBox.margin>

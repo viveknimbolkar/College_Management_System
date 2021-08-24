@@ -89,6 +89,7 @@ public class CommonMethods {
     /*
     This method add data into main database depends on the type of client
     i.e. admin, student or employee
+    TODO: (Change the return type because it will return true in any condition)
      */
     public boolean addDataIntoRespectedDB(String client, FileInputStream clientImage, String[] clientData) throws Exception{
 
@@ -129,11 +130,38 @@ public class CommonMethods {
             case "employee" -> preparedStatement.setBinaryStream(22, clientImage);
         }
 
-        preparedStatement.executeUpdate();
+        int result = preparedStatement.executeUpdate();
 
+        //if more than 0 rows affected then return true else false
+        return result > 0;
+    }
+
+
+    /*
+    This method is used to remove particula user from the database
+     */
+    public boolean removeClientDataFromDB(String client, String clientId) throws Exception{
+
+        String deleteQuery = switch (client) {
+            case "admin" -> "DELETE FROM `admin` WHERE admin_id='" + clientId + "'";
+            case "student" -> "DELETE FROM `student` WHERE student_id='" + clientId + "'";
+            case "employee" -> "DELETE FROM `employee` WHERE employee_id='" + clientId + "'";
+            default -> "";
+        };
+
+        Statement statement = conn.createStatement();
+        int result = statement.executeUpdate(deleteQuery);
+
+        if (result > 0){
+            alert.setAlertType(Alert.AlertType.INFORMATION);
+            alert.setContentText(client+" deleted successfully!");
+        }else {
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText(client+" is not deleted!\nPlease try again!");
+        }
+        alert.show();
 
         return true;
     }
-
 
 }

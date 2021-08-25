@@ -1,9 +1,7 @@
 package com.college_management_system.backend;
 
-import javafx.beans.binding.ObjectExpression;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.ToggleGroup;
 
 public class AllConstants {
 

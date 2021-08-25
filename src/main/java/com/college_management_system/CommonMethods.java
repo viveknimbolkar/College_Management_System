@@ -181,36 +181,28 @@ public class CommonMethods {
      */
     public boolean updateClientData(String clientname,FileInputStream clientImg, String[] clientData, String clientID){
 
-        String updateQuery = "";
+        String updateQuery = switch (clientname) {
+            case "admin" -> "UPDATE `admin` SET `email`=?,`password`=?," +
+                    "`mobile_no`=?,`admin_firstname`=?,`admin_middlename`=?," +
+                    "`admin_lastname`=?,`admin_home_address`=?,`admin_city`=?," +
+                    "`admin_district`=?,`admin_taluka`=?,`country`=?," +
+                    "`admin_qualification`=?,`admin_state`=?,`admin_pincode`=?, `admin_category`=?," +
+                    "`admin_cast`=?, `admin_img`=? WHERE `admin_id`='" + clientID + "'";
 
-        switch (clientname){
+            case "student" -> "UPDATE `student` SET `firstname`=?, `middlename`=?, `lastname`=?, `email`=?, " +
+                    "`phoneno`=?, `homeaddress`=?, " +
+                    "`city`=?, `district`=?, `country`=?, `taluka`=?, `pincode`=?, `ssc_marks`=?, `hsc_marks`=?, " +
+                    "`category`=?, `cast`=?, `fee`=?, `state`=?, `mht_cet_percentile`=?, `branch`=?, " +
+                    "`education_year`=?, `semester`=?, `student_img`=? WHERE `student_id`='" + clientID + "'";
 
-            case "admin":
-                updateQuery ="UPDATE `admin` SET `email`=?,`password`=?," +
-                        "`mobile_no`=?,`admin_firstname`=?,`admin_middlename`=?," +
-                        "`admin_lastname`=?,`admin_home_address`=?,`admin_city`=?," +
-                        "`admin_district`=?,`admin_taluka`=?,`country`=?," +
-                        "`admin_qualification`=?,`admin_state`=?,`admin_pincode`=?, `admin_category`=?," +
-                        "`admin_cast`=?, `admin_img`=? WHERE `admin_id`='"+clientID+"'";
-                break;
-
-            case "student":
-                updateQuery = "UPDATE `student` SET `firstname`=?, `middlename`=?, `lastname`=?, `email`=?, " +
-                        "`phoneno`=?, `homeaddress`=?, " +
-                        "`city`=?, `district`=?, `country`=?, `taluka`=?, `pincode`=?, `ssc_marks`=?, `hsc_marks`=?, " +
-                        "`category`=?, `cast`=?, `fee`=?, `state`=?, `mht_cet_percentile`=?, `branch`=?, " +
-                        "`education_year`=?, `semester`=?, `student_img`=? WHERE `student_id`='"+clientID+"'";
-                break;
-
-            case "employee":
-                updateQuery = "UPDATE `employee` SET `firstname`=?, `middlename`=?, `lastname`=?, `email`=?, " +
-                        "`phoneno`=?, `homeaddress`=?, " +
-                        "`city`=?, `district`=?, `country`=?, `taluka`=?, `qualification`=?, `cast`=?, " +
-                        "`experience`=?, " +
-                        "`pincode`=?, " +
-                        "`salary`=?, `category`=?, `teaching_subject`=?, `state`=?, `employee_img`=? WHERE `employee_id`='"+clientID+"'";
-                break;
-        }
+            case "employee" -> "UPDATE `employee` SET `firstname`=?, `middlename`=?, `lastname`=?, `email`=?, " +
+                    "`phoneno`=?, `homeaddress`=?, " +
+                    "`city`=?, `district`=?, `country`=?, `taluka`=?, `qualification`=?, `cast`=?, " +
+                    "`experience`=?, " +
+                    "`pincode`=?, " +
+                    "`salary`=?, `category`=?, `teaching_subject`=?, `state`=?, `employee_img`=? WHERE `employee_id`='" + clientID + "'";
+            default -> "";
+        };
 
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(updateQuery);
@@ -232,8 +224,9 @@ public class CommonMethods {
             return finalResult > 0;
 
         }catch (Exception e){
-            e.printStackTrace();
-            System.out.println("error");
+            //e.printStackTrace();
+            alert.setContentText("Something Went Wrong\nPlease try again.");
+            alert.show();
         }
 
         return false;

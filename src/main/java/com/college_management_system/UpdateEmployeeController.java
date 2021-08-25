@@ -120,7 +120,7 @@ public class UpdateEmployeeController implements Initializable {
                 alert.show();
             }
         }catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
             alert.setContentText("Something went wrong.\nPlease try again!");
             alert.show();
         }

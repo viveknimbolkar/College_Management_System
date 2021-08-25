@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.college_management_system.MainController">
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.college_management_system.MainController">
    <left>
       <Pane prefHeight="400.0" prefWidth="315.0" BorderPane.alignment="CENTER">
          <ImageView fitHeight="364.0" fitWidth="474.0" layoutX="-79.0" layoutY="5.0" opacity="0.94" pickOnBounds="true" preserveRatio="true" rotate="90.0">
@@ -36,7 +36,7 @@
          <TextField fx:id="email" layoutX="43.0" layoutY="165.0" prefHeight="35.0" prefWidth="200.0" />
          <Label layoutX="43.0" layoutY="213.0" text="Password" />
          <PasswordField fx:id="pwd" layoutX="43.0" layoutY="234.0" prefHeight="35.0" prefWidth="200.0" />
-         <Hyperlink layoutX="119.0" layoutY="291.0" text="Forget password?" />
+         <Hyperlink layoutX="119.0" layoutY="291.0" onAction="#openForgetPasswordSection" text="Forget password?" />
          <Button fx:id="loginBtn" layoutX="46.0" layoutY="284.0" mnemonicParsing="false" onAction="#Login" prefHeight="35.0" prefWidth="65.0" text="Login" />
       </AnchorPane>
    </center>

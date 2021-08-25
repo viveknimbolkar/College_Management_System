@@ -18,6 +18,8 @@ import java.sql.Statement;
 import java.util.Objects;
 
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 
@@ -31,6 +33,10 @@ public class MainController{
     private TextField email;
     @FXML
     private PasswordField pwd;
+    @FXML
+    private BorderPane borderpane;
+
+    SceneLoader sceneLoader = new SceneLoader();
 
     //login logic for the main login window
     @FXML
@@ -108,6 +114,14 @@ public class MainController{
         }
     }
 
+    //open forget password section
+    public void openForgetPasswordSection(ActionEvent event) throws Exception{
+        Parent root = FXMLLoader.load((getClass().getResource("forget-password.fxml")));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root,600,400);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     //create a random 6 digit number
     protected int getRandomNumber(){

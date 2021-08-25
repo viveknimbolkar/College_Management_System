@@ -153,7 +153,7 @@ public class UpdateStudentController implements Initializable {
                     successAlert.show();
                 }
             }catch (Exception e){
-                e.printStackTrace();
+                //e.printStackTrace();
                 alert.setContentText("Image size should be less than 1 MB");
                 alert.show();
             }

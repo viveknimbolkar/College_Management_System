@@ -57,6 +57,17 @@ public class CommonMethods {
         stage.show();
     }
 
+    //verify confirm password
+    public boolean verifyPassword(String password, String confirmPassword){
+        //check for password validation
+        if (!password.equals(confirmPassword)){
+            alert.setContentText("Password not matched!");
+            alert.show();
+            return false;
+        }
+        return true;
+    }
+
     public void clearAllTextFields(Pane pane){
         for (Node node: pane.getChildren() ) {
             if (node instanceof TextField){
@@ -89,7 +100,6 @@ public class CommonMethods {
     /*
     This method add data into main database depends on the type of client
     i.e. admin, student or employee
-    TODO: (Change the return type because it will return true in any condition)
      */
     public boolean addDataIntoRespectedDB(String client, FileInputStream clientImage, String[] clientData) throws Exception{
 
@@ -164,4 +174,51 @@ public class CommonMethods {
         return true;
     }
 
+
+    /*
+    This method is used to update client data
+    we are passing an array of cliend data , clientname and image
+     */
+    public boolean updateClientData(String clientname,FileInputStream clientImg, String[] clientData, String clientID){
+
+        String updateQuery = "";
+
+        switch (clientname){
+
+            case "admin":
+                updateQuery ="UPDATE `admin` SET `email`=?,`password`=?," +
+                        "`mobile_no`=?,`admin_firstname`=?,`admin_middlename`=?," +
+                        "`admin_lastname`=?,`admin_home_address`=?,`admin_city`=?," +
+                        "`admin_district`=?,`admin_taluka`=?,`country`=?," +
+                        "`admin_qualification`=?,`admin_state`=?,`admin_pincode`=?, `admin_category`=?," +
+                        "`admin_cast`=?, `admin_img`=? WHERE `admin_id`='"+clientID+"'";
+                break;
+        }
+
+        try {
+            PreparedStatement preparedStatement = conn.prepareStatement(updateQuery);
+
+            //setting values to the prepareStatement
+            for (int i = 0; i < clientData.length; i++) {
+                preparedStatement.setString(i+1,clientData[i]);
+            }
+
+            //setting image to the respected client's query
+            switch (clientname) {
+                case "admin" -> preparedStatement.setBinaryStream(17, clientImg);
+                case "student" -> preparedStatement.setBinaryStream(25, clientImg);
+                case "employee" -> preparedStatement.setBinaryStream(22, clientImg);
+            }
+
+            int finalResult = preparedStatement.executeUpdate();
+
+            return finalResult > 0;
+
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("error");
+        }
+
+        return false;
+    }
 }

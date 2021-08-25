@@ -27,7 +27,7 @@ public class UpdateAdminController implements Initializable {
     AllConstants allConstants = new AllConstants();
     ToggleGroup toggleGroup = new ToggleGroup();
     FileChooser fileChooser;
-    File userImg, tempAdminImage;
+    File tempAdminImage;
 
     @FXML
     private TextField firstname, middlename, lastname,
@@ -38,7 +38,6 @@ public class UpdateAdminController implements Initializable {
     private ImageView adminphoto;
 
     CommonMethods commonMethods = new CommonMethods();
-    AddNewAdminController addNewAdminController = new AddNewAdminController();
     Connection conn = DBConnection.getDBConnection();
     Alert alert = new Alert(Alert.AlertType.ERROR);
     Blob blob;
@@ -136,7 +135,7 @@ public class UpdateAdminController implements Initializable {
         if (isAdminDataValid && verifyPassword){
             //insert data into main database
             try {
-                FileInputStream fileInputStream = new FileInputStream(userImg);
+                FileInputStream fileInputStream = new FileInputStream(tempAdminImage);
                 boolean status = commonMethods.updateClientData("admin",fileInputStream,adminData, adminId);
                 //acknowledge user that data added successfully
                 if (status){
@@ -160,9 +159,9 @@ public class UpdateAdminController implements Initializable {
                 new FileChooser.ExtensionFilter("*.jpeg","*.jpeg"),
                 new FileChooser.ExtensionFilter("*.png","*.png")
         );
-        userImg = fileChooser.showOpenDialog(null);
+        tempAdminImage = fileChooser.showOpenDialog(null);
         //setting image to ImageView
-        InputStream inputStream = new FileInputStream(userImg.getPath());
+        InputStream inputStream = new FileInputStream(tempAdminImage.getPath());
         Image image = new Image(inputStream);
         adminphoto.setImage(image);
     }

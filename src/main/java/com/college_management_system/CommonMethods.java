@@ -193,6 +193,23 @@ public class CommonMethods {
                         "`admin_qualification`=?,`admin_state`=?,`admin_pincode`=?, `admin_category`=?," +
                         "`admin_cast`=?, `admin_img`=? WHERE `admin_id`='"+clientID+"'";
                 break;
+
+            case "student":
+                updateQuery = "UPDATE `student` SET `firstname`=?, `middlename`=?, `lastname`=?, `email`=?, " +
+                        "`phoneno`=?, `homeaddress`=?, " +
+                        "`city`=?, `district`=?, `country`=?, `taluka`=?, `pincode`=?, `ssc_marks`=?, `hsc_marks`=?, " +
+                        "`category`=?, `cast`=?, `fee`=?, `state`=?, `mht_cet_percentile`=?, `branch`=?, " +
+                        "`education_year`=?, `semester`=?, `student_img`=? WHERE `student_id`='"+clientID+"'";
+                break;
+
+            case "employee":
+                updateQuery = "UPDATE `employee` SET `firstname`=?, `middlename`=?, `lastname`=?, `email`=?, " +
+                        "`phoneno`=?, `homeaddress`=?, " +
+                        "`city`=?, `district`=?, `country`=?, `taluka`=?, `qualification`=?, `cast`=?, " +
+                        "`experience`=?, " +
+                        "`pincode`=?, " +
+                        "`salary`=?, `category`=?, `teaching_subject`=?, `state`=?, `employee_img`=? WHERE `employee_id`='"+clientID+"'";
+                break;
         }
 
         try {
@@ -206,8 +223,8 @@ public class CommonMethods {
             //setting image to the respected client's query
             switch (clientname) {
                 case "admin" -> preparedStatement.setBinaryStream(17, clientImg);
-                case "student" -> preparedStatement.setBinaryStream(25, clientImg);
-                case "employee" -> preparedStatement.setBinaryStream(22, clientImg);
+                case "student" -> preparedStatement.setBinaryStream(22, clientImg);
+                case "employee" -> preparedStatement.setBinaryStream(19, clientImg);
             }
 
             int finalResult = preparedStatement.executeUpdate();

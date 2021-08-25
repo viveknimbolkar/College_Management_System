@@ -1,38 +1,183 @@
 package com.college_management_system;
 
 import com.college_management_system.backend.AllConstants;
+import com.college_management_system.backend.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.net.URL;
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class UpdateEmployeeController implements Initializable {
 
     CommonMethods commonMethods = new CommonMethods();
-    ToggleGroup toggleGroup = new ToggleGroup();
+    Connection conn = DBConnection.getDBConnection();
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    Blob blob;
+    byte[] imageBytes;
+    File tempemployeeImage;
 
     @FXML
-    private TextField firstname, middlename, lastname, email, phoneno, address, qualification, adminid, cast, city, taluka, district, pincode, country, choosephoto;
+    private TextField firstname,
+            middlename,
+            experience,
+            lastname,
+            email,
+            phoneno,
+            address,
+            qualification,
+            cast,
+            city,
+            taluka,
+            district,
+            findemployeeid,
+            salary,
+            pincode,
+            country,
+            teachingsubject;
     @FXML
     private ChoiceBox<String> state, category;
     @FXML
-    private DatePicker dob;
-    @FXML
-    private RadioButton male,female;
-    @FXML
-    private BorderPane borderpane;
+    private ImageView employeephoto;
 
-    public void clearButton(ActionEvent event){
-        commonMethods.clearAllTextFields(borderpane);
+    public void chooseEmployeeImg(ActionEvent event) throws Exception{
+        FileChooser fileChooser = new FileChooser();
+        //only this type of files are allow
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("*.jpg","*.jpg"),
+                new FileChooser.ExtensionFilter("*.jpeg","*.jpeg"),
+                new FileChooser.ExtensionFilter("*.png","*.png")
+        );
+        tempemployeeImage = fileChooser.showOpenDialog(null);
+        //setting image to ImageView
+        InputStream inputStream = new FileInputStream(tempemployeeImage.getPath());
+        Image image = new Image(inputStream);
+        employeephoto.setImage(image);
     }
+
+    //search into the database for admin ID
+    public void searchEmployeeId(){
+        //get the admin id to search into the database
+        String employeeId = findemployeeid.getText();
+
+        //find admin data into database
+        try {
+            String findEmployeeQuery = "SELECT * FROM `employee` WHERE employee_id='"+ employeeId +"' LIMIT 1";
+            Statement statement = conn.createStatement();
+            ResultSet resultSet = statement.executeQuery(findEmployeeQuery);
+
+            //get values and set to the respective field
+            if (resultSet.next()){
+                firstname.setText(resultSet.getString("firstname"));
+                middlename.setText(resultSet.getString("middlename"));
+                lastname.setText(resultSet.getString("lastname"));
+                email.setText(resultSet.getString("email"));
+                phoneno.setText(resultSet.getString("phoneno"));
+                address.setText(resultSet.getString("homeaddress"));
+                city.setText(resultSet.getString("city"));
+                district.setText(resultSet.getString("district"));
+                country.setText(resultSet.getString("country"));
+                taluka.setText(resultSet.getString("taluka"));
+                qualification.setText(resultSet.getString("qualification"));
+                cast.setText(resultSet.getString("cast"));
+                experience.setText(resultSet.getString("experience"));
+                pincode.setText(resultSet.getString("pincode"));
+                salary.setText(resultSet.getString("salary"));
+                category.setValue(resultSet.getString("category"));
+                teachingsubject.setText(resultSet.getString("teaching_subject"));
+                state.setValue(resultSet.getString("state"));
+
+                //now retrieve student image
+                tempemployeeImage = new File("src/main/resources/com/college_management_system/images" +
+                        "/tempemployeeimage.png");
+                FileOutputStream fileOutputStream = new FileOutputStream(tempemployeeImage);
+                blob = resultSet.getBlob("employee_img");
+                imageBytes = blob.getBytes(1,(int) blob.length());
+                fileOutputStream.write(imageBytes);
+
+                //set image to the imageview
+                InputStream inputStream = new FileInputStream(tempemployeeImage);
+                Image image = new Image(inputStream);
+                employeephoto.setImage(image);
+
+            }else {
+                alert.setContentText("Employee Not Found.\nPlease try again!");
+                alert.show();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            alert.setContentText("Something went wrong.\nPlease try again!");
+            alert.show();
+        }
+
+    }
+
+    //update the updated data
+    public void updateEmployeeData(){
+
+        String employeeId = findemployeeid.getText();
+
+        //get all the data from textfield and store it into the array
+        String[] employeeData = {
+                firstname.getText(),
+                middlename.getText(),
+                lastname.getText(),
+                email.getText(),
+                phoneno.getText(),
+                address.getText(),
+                city.getText(),
+                district.getText(),
+                country.getText(),
+                taluka.getText(),
+                qualification.getText(),
+                cast.getText(),
+                experience.getText(),
+                pincode.getText(),
+                salary.getText(),
+                category.getValue(),
+                teachingsubject.getText(),
+                state.getValue()
+        };
+
+
+        //check for empty fields and alert respective value
+        boolean isStudentDataValid = commonMethods.validateAdminData(employeeData);
+
+        //if admin data is valid and no duplicate entry found then add info into main DB
+        if (isStudentDataValid){
+            //insert data into main database
+            try {
+                FileInputStream fileInputStream = new FileInputStream(tempemployeeImage);
+                boolean status = commonMethods.updateClientData("employee", fileInputStream, employeeData, employeeId);
+                //acknowledge user that data added successfully
+                if (status){
+                    Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                    successAlert.setContentText("Employee Updated Successfully!");
+                    successAlert.show();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+                alert.setContentText("Image size should be less than 1 MB");
+                alert.show();
+            }
+        }
+    }
+
 
     AllConstants allConstants = new AllConstants();
     @Override
@@ -45,8 +190,5 @@ public class UpdateEmployeeController implements Initializable {
         category.setItems(allConstants.getCategories());
         category.show();
 
-        //radio button value should be one
-        male.setToggleGroup(toggleGroup);
-        female.setToggleGroup(toggleGroup);
     }
 }

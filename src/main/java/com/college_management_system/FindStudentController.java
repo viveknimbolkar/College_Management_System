@@ -14,7 +14,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -32,6 +34,9 @@ public class FindStudentController implements Initializable {
     private TableColumn<Person,String> details;
 
     Alert alert = new Alert(Alert.AlertType.WARNING);
+    CommonMethods commonMethods = new CommonMethods();
+    File studentDetails;
+    String[] toWriteIntoPdf;
 
     //find admin details by search into main database
     public void findStudentDetails(ActionEvent event){
@@ -73,6 +78,8 @@ public class FindStudentController implements Initializable {
                         resultSet.getString("ssc_marks"),
                         resultSet.getString("hsc_marks"),
                 };
+
+                toWriteIntoPdf = getStudentDataFromDB;
 
                 //create list to show inside table
                 ObservableList<Person> list = FXCollections.observableArrayList(
@@ -119,6 +126,19 @@ public class FindStudentController implements Initializable {
             alert.show();
 
         }
+    }
+
+
+    //generate pdf file of student details
+    public void generatePdfFile(ActionEvent event) throws Exception{
+        FileChooser fileChooser = new FileChooser();
+        //only this type of files are allow
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter(".pdf","*.pdf")
+
+        );
+        studentDetails = fileChooser.showSaveDialog(null);
+        commonMethods.createClientPDFFile("Student", toWriteIntoPdf, studentDetails);
     }
 
     @Override

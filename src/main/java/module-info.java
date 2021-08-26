@@ -2,6 +2,7 @@ module com.college_management_system {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires itextpdf;
 
 
     opens com.college_management_system to javafx.fxml;

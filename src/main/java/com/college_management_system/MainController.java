@@ -11,13 +11,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Objects;
 
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -37,6 +37,12 @@ public class MainController{
     private BorderPane borderpane;
 
     SceneLoader sceneLoader = new SceneLoader();
+
+    //enter keypressed
+    public void enterKeyPressed(KeyEvent keyEvent, ActionEvent actionEvent){
+        if (keyEvent.getCode() == KeyCode.ENTER)
+            Login(actionEvent);
+    }
 
     //login logic for the main login window
     @FXML
@@ -130,4 +136,6 @@ public class MainController{
         return (int) (Math.random() * (maxNum - minNum+1) + minNum);
     }
 
+    public void enterKeyPressed(KeyEvent keyEvent) {
+    }
 }

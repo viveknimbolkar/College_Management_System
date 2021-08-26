@@ -11,7 +11,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
 
@@ -27,6 +29,9 @@ public class FindEmployeeController {
     private TableColumn<Person,String> details;
 
     Alert alert = new Alert(Alert.AlertType.WARNING);
+    CommonMethods commonMethods = new CommonMethods();
+    File employeeDetails;
+    String[] toWriteIntoPdf;
 
     //find employee
     public void findEmployeeDetails(ActionEvent event){
@@ -62,6 +67,8 @@ public class FindEmployeeController {
                         resultSet.getString("cast"),
                         resultSet.getString("dob"),
                 };
+
+                toWriteIntoPdf = getEmployeeDataFromDB;
 
                 //create list to show inside table
                 ObservableList<Person> list = FXCollections.observableArrayList(
@@ -101,5 +108,17 @@ public class FindEmployeeController {
             alert.setContentText("Something went Wrong\nPlease try again!");
             alert.show();
         }
+    }
+
+    //generate pdf file of student details
+    public void generatePdfFile(ActionEvent event) throws Exception{
+        FileChooser fileChooser = new FileChooser();
+        //only this type of files are allow
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter(".pdf","*.pdf")
+
+        );
+        employeeDetails = fileChooser.showSaveDialog(null);
+        commonMethods.createClientPDFFile("Employee", toWriteIntoPdf, employeeDetails);
     }
 }

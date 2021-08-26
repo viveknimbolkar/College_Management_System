@@ -54,7 +54,7 @@
                <Insets left="10.0" right="10.0" />
             </VBox.margin>
          </TableView>
-         <Button mnemonicParsing="false" style="-fx-background-color: #2b4160;" text="Save as file" textFill="WHITE">
+         <Button mnemonicParsing="false" onAction="#generatePdfFile" style="-fx-background-color: #2b4160;" text="Save as file" textFill="WHITE">
             <VBox.margin>
                <Insets left="400.0" top="20.0" />
             </VBox.margin>

@@ -15,6 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -32,6 +33,10 @@ public class FindAdminController implements Initializable {
     private TableColumn<Person,String> details;
 
     Alert alert = new Alert(Alert.AlertType.WARNING);
+    CommonMethods commonMethods = new CommonMethods();
+    File adminDetails;
+
+    String[] toWriteIntoPdf;
 
     //find admin details by search into main database
     public void findAdminDetails(ActionEvent event){
@@ -68,6 +73,8 @@ public class FindAdminController implements Initializable {
                         resultSet.getString("admin_cast"),
                         resultSet.getString("admin_dob"),
                 };
+
+                toWriteIntoPdf = getAdminDataFromDB;
 
                 //create list to show inside table
                 ObservableList<Person> list = FXCollections.observableArrayList(
@@ -107,6 +114,10 @@ public class FindAdminController implements Initializable {
             alert.show();
 
         }
+    }
+
+    public void generatePdfFile(ActionEvent event) throws Exception{
+        commonMethods.createClientPDFFile("Admin", toWriteIntoPdf, adminDetails);
     }
 
     @Override

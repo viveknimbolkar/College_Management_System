@@ -11,6 +11,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import com.college_management_system.backend.AllConstants;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.stream.Stream;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -68,13 +78,6 @@ public class CommonMethods {
         return true;
     }
 
-    public void clearAllTextFields(Pane pane){
-        for (Node node: pane.getChildren() ) {
-            if (node instanceof TextField){
-                ((TextField)node).setText("");
-            }
-        }
-    }
 
 //=============DATABASE RELATED OPERATIONS=======================================================================
 
@@ -92,7 +95,6 @@ public class CommonMethods {
 
         Statement statement = conn.createStatement();
         ResultSet resultSet = statement.executeQuery(query);
-
         return resultSet.next();
     }
 
@@ -105,7 +107,6 @@ public class CommonMethods {
 
         //change query according to the client respective database
         String insertQuery = switch (client) {
-
             case "admin" -> "INSERT INTO `admin` (`email`, `password`, `mobile_no`, `admin_firstname`, " +
                     "`admin_middlename`, `admin_lastname`, `admin_home_address`, `admin_city`, `admin_district`, " +
                     "`admin_taluka`, `country`, `admin_qualification`, `admin_state`, `admin_pincode`,`admin_gender`, " +
@@ -127,7 +128,6 @@ public class CommonMethods {
         };
 
         PreparedStatement preparedStatement = conn.prepareStatement(insertQuery);
-
         //assign respected values to the preparestatement
         for (int i = 0; i < clientData.length; i++) {
             preparedStatement.setString(i+1, clientData[i]);
@@ -141,15 +141,13 @@ public class CommonMethods {
         }
 
         int result = preparedStatement.executeUpdate();
-
         //if more than 0 rows affected then return true else false
         return result > 0;
     }
 
 
-    /*
-    This method is used to remove particula user from the database
-     */
+
+    //This method is used to remove particula user from the database
     public boolean removeClientDataFromDB(String client, String clientId) throws Exception{
 
         String deleteQuery = switch (client) {
@@ -206,7 +204,6 @@ public class CommonMethods {
 
         try {
             PreparedStatement preparedStatement = conn.prepareStatement(updateQuery);
-
             //setting values to the prepareStatement
             for (int i = 0; i < clientData.length; i++) {
                 preparedStatement.setString(i+1,clientData[i]);
@@ -220,7 +217,6 @@ public class CommonMethods {
             }
 
             int finalResult = preparedStatement.executeUpdate();
-
             return finalResult > 0;
 
         }catch (Exception e){
@@ -228,7 +224,73 @@ public class CommonMethods {
             alert.setContentText("Something Went Wrong\nPlease try again.");
             alert.show();
         }
-
         return false;
     }
+
+    /*
+    This method create a pdf file having some client data.
+    We are using iText API to do this stuff.
+     */
+    public void createClientPDFFile(String clientName, String[] clientData, File saveAs) throws Exception{
+
+        Document document = new Document();
+        PdfWriter.getInstance(document, new FileOutputStream(saveAs));
+        document.open();
+
+        Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 24, BaseColor.BLACK);
+        Chunk collegeName = new Chunk("Sipna College Of Engineering & Technology",font);
+        document.add(collegeName);
+        document.add(Chunk.NEWLINE);
+        document.add(new Paragraph(clientName+" details"));
+        document.add(Chunk.NEWLINE);
+        document.add(Chunk.NEWLINE);
+
+        PdfPTable table = new PdfPTable(2);
+        addTableHeader(table);
+        addRows(table,clientData,clientName);
+
+        document.add(table);
+        document.close();
+    }
+
+    private static void addRows(PdfPTable table, String[] clientData, String clientName) {
+        AllConstants allConstants = new AllConstants();
+
+        //if client name is admin the run this loop
+        switch (clientName){
+            case "Admin":
+                for (int i = 0; i < clientData.length; i++) {
+                    table.addCell(allConstants.ADMIN_DATA_FIELDS[i]);
+                    table.addCell(clientData[i]);
+                }
+                break;
+
+            case "Student":
+                for (int i = 0; i < clientData.length; i++) {
+                    table.addCell(allConstants.STUDENT_DATA_FIELDS[i]);
+                    table.addCell(clientData[i]);
+                }
+                break;
+
+            case "Employee":
+                for (int i = 0; i < clientData.length; i++) {
+                    table.addCell(allConstants.EMPLOYEE_DATA_FIELDS[i]);
+                    table.addCell(clientData[i]);
+                }
+                break;
+        }
+
+    }
+
+    private static void addTableHeader(PdfPTable table) {
+        Stream.of("Name", "Details")
+                .forEach(columnTitle -> {
+                    PdfPCell header = new PdfPCell();
+                    header.setBackgroundColor(BaseColor.LIGHT_GRAY);
+                    header.setBorderWidth(2);
+                    header.setPhrase(new Phrase(columnTitle));
+                    table.addCell(header);
+                });
+    }
+
 }

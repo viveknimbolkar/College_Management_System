@@ -22,6 +22,80 @@ public class AllConstants {
     public final int MAIN_SWITCH_HEIGHT = 400;
     //size of main-switch.fxml i.e. Main section
 
+
+    //This array use to write field name into pdf file
+    public final String[] ADMIN_DATA_FIELDS = {
+            "Email Address",
+            "Password",
+            "Mobile no.",
+            "Firstname",
+            "Fathername",
+            "Surname",
+            "Home Address",
+            "City",
+            "District",
+            "Taluka",
+            "Country",
+            "Qualification",
+            "State",
+            "Pincode",
+            "Gender",
+            "Admin ID",
+            "Category",
+            "Cast",
+            "Date of Birth"
+    };
+
+    //This array use to write field name into pdf file
+    public final String[] EMPLOYEE_DATA_FIELDS = {
+            "Firstname",
+            "Fathername",
+            "Surname",
+            "Email Address",
+            "Employee ID",
+            "Mobile no.",
+            "Home Address",
+            "City",
+            "Taluka",
+            "District",
+            "Pincode",
+            "State",
+            "Country",
+            "Qualification",
+            "Gender",
+            "Category",
+            "Cast",
+            "Date of Birth"
+    };
+
+    //This array use to write field name into pdf file
+    public final String[] STUDENT_DATA_FIELDS = {
+            "Firstname",
+            "Fathername",
+            "Surname",
+            "Email Address",
+            "Mobile no.",
+            "Student ID",
+            "Home Address",
+            "City",
+            "Taluka",
+            "District",
+            "State",
+            "Pincode",
+            "Country",
+            "Cast",
+            "Gender",
+            "Category",
+            "Date of Birth",
+            "MHT-CET Percentile",
+            "Branch",
+            "Education Year",
+            "Semester",
+            "Fee paid",
+            "SSC Marks",
+            "HSC Marks"
+    };
+
     //list of all categories
     public ObservableList<String> getCategories(){
 
@@ -104,5 +178,7 @@ public class AllConstants {
                 "West Bengal"
         );
     }
+
+
 
 }

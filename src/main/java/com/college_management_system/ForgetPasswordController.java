@@ -20,7 +20,9 @@ public class ForgetPasswordController {
     @FXML
     private TextField contactinfo;
     @FXML
-    private PasswordField otp, newpassword, confirmpassword;
+    private PasswordField newpassword, confirmpassword;
+    @FXML
+    private static PasswordField otp;
     @FXML
     private BorderPane borderPane;
 
@@ -33,8 +35,6 @@ public class ForgetPasswordController {
 
     //send otp
     public void sendOtp(ActionEvent event) throws Exception{
-        Pane view = sceneLoader.getView("forget-password-1.fxml");
-        borderPane.setCenter(view);
 
         //now search into database and find the respective admin
         userContactInfo = contactinfo.getText();
@@ -59,12 +59,16 @@ public class ForgetPasswordController {
                 //send otp to registerd mobile number
                 SendSMS.sendSms(otpStr,result.getString(4));
 
+
+                Pane view = sceneLoader.getView("forget-password-1.fxml");
+                borderPane.setCenter(view);
+
             }else {
                 alert.setContentText("User Not Found!");
                 alert.show();
             }
         }catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
 

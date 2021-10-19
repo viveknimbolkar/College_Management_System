@@ -18,7 +18,6 @@ public class StudentSectionController {
 
     //find student scene
     public void findStudentView(ActionEvent e) throws Exception{
-        //System.out.println("find admin scene");
         SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("find-student.fxml");
         borderPane.setCenter(view);
@@ -26,14 +25,12 @@ public class StudentSectionController {
 
     //add student scene
     public void addStudentView(ActionEvent e) throws Exception{
-        //System.out.println("find admin scene");
         SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("add-new-student.fxml");
         borderPane.setCenter(view);
     }
     //remove student scene
     public void removeStudentView(ActionEvent e) throws Exception{
-        //System.out.println("find admin scene");
         SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("remove-student.fxml");
         borderPane.setCenter(view);
@@ -41,7 +38,6 @@ public class StudentSectionController {
 
     //update student scene
     public void updateStudentView(ActionEvent e) throws Exception{
-        //System.out.println("find admin scene");
         SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("update-student.fxml");
         borderPane.setCenter(view);

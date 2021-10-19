@@ -24,6 +24,8 @@ public class RemoveAdminController {
 
         String adminid = adminId.getText();
 
+        if (adminid.isEmpty())return; //do nothing if admin id is not entered by the user
+
         alert.setContentText("Do you really want to delete this Administrator?\nThis process cannot be undone!");
         alert.showAndWait();
 

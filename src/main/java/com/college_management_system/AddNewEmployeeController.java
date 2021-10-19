@@ -37,12 +37,9 @@ public class AddNewEmployeeController implements Initializable {
     private ImageView employeephoto;
 
     public void addNewEmployee(){
-
         try {
             RadioButton rb = (RadioButton) toggleGroup.getSelectedToggle();
             String gender = rb.getText(); //store gender
-
-
             //get student data and store into string array
             String[] studentData = {
                     firstname.getText(),
@@ -68,14 +65,12 @@ public class AddNewEmployeeController implements Initializable {
                     state.getValue()
             };
 
-
             //validate student data and also check for duplicate entry in student table
             boolean isStudentDataValid = commonMethods.validateAdminData(studentData);
             boolean duplicateEntry = commonMethods.checkForDuplicateEntry("employee",studentData[3]);
 
             //if student data is valid and no duplicate record found then add studentdata into database
             if (isStudentDataValid && !duplicateEntry){
-
                 try {
                     //get image of student
                     FileInputStream fileInputStream = new FileInputStream(employeeImg);

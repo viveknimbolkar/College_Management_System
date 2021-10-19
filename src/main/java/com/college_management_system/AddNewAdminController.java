@@ -50,7 +50,6 @@ public class AddNewAdminController implements Initializable {
         try {
             RadioButton rb = (RadioButton) toggleGroup.getSelectedToggle();
             String gender = rb.getText(); //store gender
-
             //get all the data from textfield and store it into the array
             String[] adminData = {
                     email.getText(),

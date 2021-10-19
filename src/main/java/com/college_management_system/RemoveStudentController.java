@@ -21,12 +21,9 @@ public class RemoveStudentController {
     );
 
     public void removeStudentFromDB(ActionEvent event) throws Exception {
-
         String studentid = studentId.getText();
-
         alert.setContentText("Do you really want to delete this Student?\nThis process cannot be undone!");
         alert.showAndWait();
-
         //if user press ok then delete reapective record
         if (alert.getResult() == ButtonType.YES){
             commonMethods.removeClientDataFromDB("student",studentid);

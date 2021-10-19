@@ -136,7 +136,6 @@ public class UpdateStudentController implements Initializable {
                 semester.getValue(),
         };
 
-
         //check for empty fields and alert respective value
         boolean isStudentDataValid = commonMethods.validateAdminData(studentData);
 

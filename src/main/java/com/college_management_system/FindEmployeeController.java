@@ -35,9 +35,7 @@ public class FindEmployeeController {
 
     //find employee
     public void findEmployeeDetails(ActionEvent event){
-
         String employeeId = employeeid.getText();
-
         try {
             Connection connection = DBConnection.getDBConnection();
             String query = "SELECT * FROM `employee` WHERE employee_id='"+employeeId+"'";
@@ -45,7 +43,6 @@ public class FindEmployeeController {
 
             //if admin details found in database then show into the table coulums
             if (resultSet.next()){
-
                 //store received information into array and send to Admin class to show inside tableview
                 String[] getEmployeeDataFromDB = {
                         resultSet.getString("firstname"),
@@ -101,8 +98,7 @@ public class FindEmployeeController {
                 alert.setContentText("Employee Details Not Found!\nCheck Employee ID again!");
                 alert.show();
             }
-
-            }catch (Exception e){
+        }catch (Exception e){
             e.printStackTrace();
             alert.setAlertType(Alert.AlertType.ERROR);
             alert.setContentText("Something went Wrong\nPlease try again!");

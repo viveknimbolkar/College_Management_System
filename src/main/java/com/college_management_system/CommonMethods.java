@@ -7,8 +7,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import com.college_management_system.backend.AllConstants;
 import com.itextpdf.text.*;
@@ -18,8 +16,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.stream.Stream;
 
 import java.io.FileInputStream;
@@ -104,7 +100,6 @@ public class CommonMethods {
     i.e. admin, student or employee
      */
     public boolean addDataIntoRespectedDB(String client, FileInputStream clientImage, String[] clientData) throws Exception{
-
         //change query according to the client respective database
         String insertQuery = switch (client) {
             case "admin" -> "INSERT INTO `admin` (`email`, `password`, `mobile_no`, `admin_firstname`, " +
@@ -168,7 +163,6 @@ public class CommonMethods {
             alert.setContentText(client+" is not deleted!\nPlease try again!");
         }
         alert.show();
-
         return true;
     }
 

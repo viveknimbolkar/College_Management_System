@@ -23,7 +23,7 @@ public class DBConnection {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(url,username,password);
         }catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         return conn; //return jdbc connection to mysql
     }

@@ -1,7 +1,6 @@
 package com.college_management_system;
 
 import com.college_management_system.backend.DBConnection;
-import com.college_management_system.backend.SendSMS;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,10 +15,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 
@@ -38,17 +35,9 @@ public class MainController{
 
     SceneLoader sceneLoader = new SceneLoader();
 
-    //enter keypressed
-    public void enterKeyPressed(KeyEvent keyEvent, ActionEvent actionEvent){
-        if (keyEvent.getCode() == KeyCode.ENTER)
-            Login(actionEvent);
-    }
-
     //login logic for the main login window
     @FXML
     public void Login(ActionEvent e) {
-
-        //System.out.println("working");
         //get the credentials from user
         String useremail = email.getText();
         String userpwd = pwd.getText();
@@ -64,9 +53,7 @@ public class MainController{
 
             //if admin found
             if (result.next()){
-                //System.out.println(result.getString(1)+" "+result.getString(2));
-
-                //Uncomment this code for without sms authentication login
+                //Uncomment this code for without sms authentication (login)
                  Parent root = FXMLLoader.load((getClass().getResource("main-switch.fxml")));
                  Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                  Scene scene = new Scene(root,600,400);
@@ -76,7 +63,7 @@ public class MainController{
 //===============================================================================
 // Uncomment this code to use sms authentication
 //                int otp = commonMethods.getRandomNumber();
-//                System.out.println(otp);
+//                //System.out.println(otp);
 //
 //                String otpStr = Integer.toString(otp)+" is your otp for CMS. Please don't share with anyone!";
 //                //send otp to registerd mobile number
@@ -92,16 +79,16 @@ public class MainController{
 //                    //change scene
 //                    Parent root1 = FXMLLoader.load((getClass().getResource("main-switch.fxml")));
 //                    Stage stage1 = (Stage) ((Node) e.getSource()).getScene().getWindow();
-//                    Scene scene1 = new Scene(root,600,400);
-//                    stage.setScene(scene1);
-//                    stage.show();
+//                    Scene scene1 = new Scene(root1,600,400);
+//                    stage1.setScene(scene1);
+//                    stage1.show();
 //                }else {
 //                    //IF LOGIN FAILS
 //                    //System.out.println("NOT matched. ERROR");
 //                    alert.setAlertType(Alert.AlertType.ERROR);
 //                    alert.setContentText("OTP Not Matched! Please try again.");
 //                }
-//
+//comment upto this
 
             }else {
                 //if admin not found
@@ -110,12 +97,12 @@ public class MainController{
                 alert.setContentText("Email address or Password dosen't matched! Please enter correct one.");
                 alert.show();
             }
-
             con.close();
 
         }catch (Exception ex){
-            //ex.printStackTrace();
-            alert.setContentText("Internal Server Error!\n Please try again.");
+            ex.printStackTrace();
+            alert.setAlertType(Alert.AlertType.ERROR);
+            alert.setContentText("Internal Server Error!\n Please try again later.");
             alert.show();
         }
     }

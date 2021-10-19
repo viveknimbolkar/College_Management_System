@@ -21,12 +21,9 @@ public class RemoveEmployeeController {
     );
 
     public void removeEmployeeFromDB(ActionEvent event) throws Exception {
-
         String employeeid = employeeId.getText();
-
         alert.setContentText("Do you really want to delete this Employee?\nThis process cannot be undone!");
         alert.showAndWait();
-
         //if user press ok then delete reapective record
         if (alert.getResult() == ButtonType.YES){
             commonMethods.removeClientDataFromDB("employee",employeeid);

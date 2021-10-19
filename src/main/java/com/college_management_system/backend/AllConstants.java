@@ -13,15 +13,10 @@ public class AllConstants {
     public final int WIDTH = 1100;
     public final int HEIGHT = 700;
 
-//    //DEFINES THE POSITION ON SCREEN OF MAIN SWITCH
-//    public final int MAIN_SWITCH_H_POSITION = 600;
-//    public final int MAIN_SWITCH_V_POSITION = 200;
-
     //size of main switch
     public final int MAIN_SWITCH_WIDTH = 600;
     public final int MAIN_SWITCH_HEIGHT = 400;
     //size of main-switch.fxml i.e. Main section
-
 
     //This array use to write field name into pdf file
     public final String[] ADMIN_DATA_FIELDS = {
@@ -98,7 +93,6 @@ public class AllConstants {
 
     //list of all categories
     public ObservableList<String> getCategories(){
-
       return FXCollections.observableArrayList(
               "OBC",
               "OPEN",
@@ -147,7 +141,6 @@ public class AllConstants {
 
     //List of all states
     public ObservableList<String> getStateList(){
-
         return FXCollections.observableArrayList(
                 "Andhra Pradesh",
                 "Arunachal Pradesh",

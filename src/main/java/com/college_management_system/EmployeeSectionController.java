@@ -18,7 +18,6 @@ public class EmployeeSectionController {
 
     //find student scene
     public void findEmployeeView(ActionEvent e) throws Exception{
-        //System.out.println("find admin scene");
         SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("find-employee.fxml");
         borderPane.setCenter(view);
@@ -26,14 +25,12 @@ public class EmployeeSectionController {
 
     //add Employee scene
     public void addEmployeeView(ActionEvent e) throws Exception{
-        //System.out.println("find admin scene");
         SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("add-new-employee.fxml");
         borderPane.setCenter(view);
     }
     //remove Employee scene
     public void removeEmployeeView(ActionEvent e) throws Exception{
-        //System.out.println("find admin scene");
         SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("remove-employee.fxml");
         borderPane.setCenter(view);
@@ -41,7 +38,6 @@ public class EmployeeSectionController {
 
     //update Employee scene
     public void updateEmployeeView(ActionEvent e) throws Exception{
-        //System.out.println("find admin scene");
         SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("update-employee.fxml");
         borderPane.setCenter(view);

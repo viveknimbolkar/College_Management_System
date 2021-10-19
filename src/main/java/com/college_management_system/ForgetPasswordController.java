@@ -35,10 +35,8 @@ public class ForgetPasswordController {
 
     //send otp
     public void sendOtp(ActionEvent event) throws Exception{
-
         //now search into database and find the respective admin
         userContactInfo = contactinfo.getText();
-
         //find the user into the database
         try{
             Connection con = DBConnection.getDBConnection();
@@ -50,19 +48,13 @@ public class ForgetPasswordController {
             if (result.next()){
                 //get random number for otp
                 generatedOTP = commonMethods.getRandomNumber();
-
                 String otpStr = Integer.toString(generatedOTP)+" is your otp for College Management System. Please " +
                         "don't share with anyone!";
-
-                System.out.println(generatedOTP);
-
+//                System.out.println(generatedOTP);
                 //send otp to registerd mobile number
                 SendSMS.sendSms(otpStr,result.getString(4));
-
-
                 Pane view = sceneLoader.getView("forget-password-1.fxml");
                 borderPane.setCenter(view);
-
             }else {
                 alert.setContentText("User Not Found!");
                 alert.show();

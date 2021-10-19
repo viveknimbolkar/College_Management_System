@@ -40,7 +40,6 @@ public class FindAdminController implements Initializable {
 
     //find admin details by search into main database
     public void findAdminDetails(ActionEvent event){
-
         String adminId = adminid.getText();
 
         try {
@@ -50,7 +49,6 @@ public class FindAdminController implements Initializable {
 
             //if admin details found in database then show into the table coulums
             if (resultSet.next()){
-
                 //store received information into array and send to Admin class to show inside tableview
                 String[] getAdminDataFromDB = {
                         resultSet.getString("email"),
@@ -73,7 +71,6 @@ public class FindAdminController implements Initializable {
                         resultSet.getString("admin_cast"),
                         resultSet.getString("admin_dob"),
                 };
-
                 toWriteIntoPdf = getAdminDataFromDB;
 
                 //create list to show inside table

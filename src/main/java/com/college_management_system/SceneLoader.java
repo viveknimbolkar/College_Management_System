@@ -13,7 +13,6 @@ public class SceneLoader {
     private Pane view;
 
     public Pane getView(String fxmlName) throws Exception{
-
         //get url of fxml file as an argument
         URL fxmlURL = AdminSectionController.class.getResource(fxmlName);
 

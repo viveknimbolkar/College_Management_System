@@ -50,7 +50,6 @@ public class FindStudentController implements Initializable {
 
             //if admin details found in database then show into the table coulums
             if (resultSet.next()){
-
                 //store received information into array and send to Admin class to show inside tableview
                 String[] getStudentDataFromDB = {
                         resultSet.getString("firstname"),
@@ -118,7 +117,6 @@ public class FindStudentController implements Initializable {
                 alert.setContentText("Student Details Not Found!\nCheck Student ID again!");
                 alert.show();
             }
-
         }catch (Exception e){
             e.printStackTrace();
             alert.setAlertType(Alert.AlertType.ERROR);

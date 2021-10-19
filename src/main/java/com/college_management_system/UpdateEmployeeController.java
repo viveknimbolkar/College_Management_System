@@ -129,9 +129,7 @@ public class UpdateEmployeeController implements Initializable {
 
     //update the updated data
     public void updateEmployeeData(){
-
         String employeeId = findemployeeid.getText();
-
         //get all the data from textfield and store it into the array
         String[] employeeData = {
                 firstname.getText(),
@@ -153,7 +151,6 @@ public class UpdateEmployeeController implements Initializable {
                 teachingsubject.getText(),
                 state.getValue()
         };
-
 
         //check for empty fields and alert respective value
         boolean isStudentDataValid = commonMethods.validateAdminData(employeeData);
@@ -189,6 +186,5 @@ public class UpdateEmployeeController implements Initializable {
         //set category list
         category.setItems(allConstants.getCategories());
         category.show();
-
     }
 }

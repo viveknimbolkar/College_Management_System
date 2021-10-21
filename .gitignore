@@ -1,6 +1,3 @@
 # Project exclude paths
 /target/
 server.sh
-src/main/resources/com/college_management_system/images/tempadminimage.png
-src/main/resources/com/college_management_system/images/tempemployeeimage.png
-src/main/resources/com/college_management_system/images/tempstudentimage.png

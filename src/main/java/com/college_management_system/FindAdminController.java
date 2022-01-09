@@ -109,7 +109,7 @@ public class FindAdminController implements Initializable {
             alert.setAlertType(Alert.AlertType.ERROR);
             alert.setContentText("Something went Wrong\nPlease try again!");
             alert.show();
-
+            String handle = "vivek nimbolkar";
         }
     }
 

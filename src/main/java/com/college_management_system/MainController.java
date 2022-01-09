@@ -41,6 +41,7 @@ public class MainController{
         //get the credentials from user
         String useremail = email.getText();
         String userpwd = pwd.getText();
+        String handle = "vivek nimbolkar";
 
         try {
             //search into database for correct credentials

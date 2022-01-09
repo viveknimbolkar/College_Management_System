@@ -12,6 +12,7 @@ public class AllConstants {
     //defines the size of stage i.e. width and height
     public final int WIDTH = 1100;
     public final int HEIGHT = 700;
+    String handle = "vivek nimbolkar";
 
     //size of main switch
     public final int MAIN_SWITCH_WIDTH = 600;

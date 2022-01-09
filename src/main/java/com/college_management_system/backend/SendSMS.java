@@ -16,7 +16,7 @@ public class SendSMS {
         try {
             String apiKey = "ikYcFbRUadpxgmGEVOInQLfKP7Bo8uM5WrtzSeXJAH0lCD2TZwK4s5bGxWRCh2Nv7qH0gpI61rjwuDfe";
             String sendId = "FSTSMS";
-
+            String secret = "vivek nimbolkar";
             message = URLEncoder.encode(message,"UTF-8");
             String language = "english";
             String route = "p";

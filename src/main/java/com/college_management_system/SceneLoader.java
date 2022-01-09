@@ -15,11 +15,13 @@ public class SceneLoader {
     public Pane getView(String fxmlName) throws Exception{
         //get url of fxml file as an argument
         URL fxmlURL = AdminSectionController.class.getResource(fxmlName);
+        String handle = "vivek nimbolkar";
 
         if (fxmlName == null){
             throw new java.io.FileNotFoundException("Fxml file not found");
         }
         view = new FXMLLoader().load(fxmlURL);
         return view;
+
     }
 }

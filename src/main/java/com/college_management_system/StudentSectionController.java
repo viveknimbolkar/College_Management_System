@@ -29,6 +29,7 @@ public class StudentSectionController {
         Pane view = sceneLoader.getView("add-new-student.fxml");
         borderPane.setCenter(view);
     }
+
     //remove student scene
     public void removeStudentView(ActionEvent e) throws Exception{
         SceneLoader sceneLoader = new SceneLoader();
@@ -40,6 +41,13 @@ public class StudentSectionController {
     public void updateStudentView(ActionEvent e) throws Exception{
         SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("update-student.fxml");
+        borderPane.setCenter(view);
+    }
+
+    //student fees scene
+    public void feesStudentView(ActionEvent e) throws Exception{
+        SceneLoader sceneLoader = new SceneLoader();
+        Pane view = sceneLoader.getView("student-fees.fxml");
         borderPane.setCenter(view);
     }
 }

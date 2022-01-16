@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.college_management_system.FeeController">
+   <top>
+      <Label prefHeight="44.0" prefWidth="199.0" text="Student Fee Form" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label prefHeight="30.0" text="Student ID:">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="studentId" prefHeight="35.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label prefHeight="30.0" text="Education Year:">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ChoiceBox fx:id="educationYear" prefHeight="35.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </ChoiceBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <Label prefHeight="30.0" text="Fullname:">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="fullname" prefHeight="35.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label prefHeight="30.0" text="Total Payable:">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Spinner fx:id="fee" prefHeight="35.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </Spinner>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+               <children>
+                  <Label prefHeight="30.0" text="Branch:">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ChoiceBox fx:id="branch" prefHeight="35.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </ChoiceBox>
+                  <Button fx:id="payFees" mnemonicParsing="false" onAction="#collectFees" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: green;" text="Pay" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="29.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </center>
+   <right>
+      <VBox prefHeight="536.0" prefWidth="228.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="30.0" text="Semester:">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </VBox.margin>
+            </Label>
+            <ChoiceBox fx:id="semester" prefHeight="35.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </VBox.margin>
+            </ChoiceBox>
+            <Button mnemonicParsing="false" onAction="#resetAllFields" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: red;" text="Reset" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="29.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+   <bottom>
+      <VBox alignment="TOP_CENTER" prefHeight="371.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator prefWidth="200.0" />
+            <Label text="Student Fee History">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="TOP_CENTER" prefHeight="66.0" prefWidth="900.0">
+               <children>
+                  <TextField fx:id="searchStudentId" prefHeight="35.0" prefWidth="200.0" promptText="Enter student id...">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="findFeeHistory" mnemonicParsing="false" onAction="#findFeeHistory" prefHeight="35.0" style="-fx-background-color: green;" text="Find Fees History" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="125.0" text="Student ID" />
+                <TableColumn prefWidth="133.0" text="Student Name" />
+                  <TableColumn prefWidth="118.0" text="Branch" />
+                  <TableColumn minWidth="5.0" prefWidth="81.0" text="semester" />
+                  <TableColumn prefWidth="125.0" text="Education Year" />
+                  <TableColumn prefWidth="161.0" text="Fee Paid" />
+                  <TableColumn prefWidth="156.0" text="Date" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>

@@ -141,10 +141,8 @@ public class CommonMethods {
     }
 
 
-
     //This method is used to remove particula user from the database
     public boolean removeClientDataFromDB(String client, String clientId) throws Exception{
-
         String deleteQuery = switch (client) {
             case "admin" -> "DELETE FROM `admin` WHERE admin_id='" + clientId + "'";
             case "student" -> "DELETE FROM `student` WHERE student_id='" + clientId + "'";
@@ -172,7 +170,6 @@ public class CommonMethods {
     we are passing an array of cliend data , clientname and image
      */
     public boolean updateClientData(String clientname,FileInputStream clientImg, String[] clientData, String clientID){
-
         String updateQuery = switch (clientname) {
             case "admin" -> "UPDATE `admin` SET `email`=?,`password`=?," +
                     "`mobile_no`=?,`admin_firstname`=?,`admin_middlename`=?," +
@@ -214,7 +211,6 @@ public class CommonMethods {
             return finalResult > 0;
 
         }catch (Exception e){
-            //e.printStackTrace();
             alert.setContentText("Something Went Wrong\nPlease try again.");
             alert.show();
         }
@@ -226,7 +222,6 @@ public class CommonMethods {
     We are using iText API to do this stuff.
      */
     public void createClientPDFFile(String clientName, String[] clientData, File saveAs) throws Exception{
-
         Document document = new Document();
         PdfWriter.getInstance(document, new FileOutputStream(saveAs));
         document.open();
@@ -273,7 +268,6 @@ public class CommonMethods {
                 }
                 break;
         }
-
     }
 
     private static void addTableHeader(PdfPTable table) {
@@ -286,5 +280,4 @@ public class CommonMethods {
                     table.addCell(header);
                 });
     }
-
 }

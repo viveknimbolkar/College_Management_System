@@ -172,7 +172,4 @@ public class AllConstants {
                 "West Bengal"
         );
     }
-
-
-
 }

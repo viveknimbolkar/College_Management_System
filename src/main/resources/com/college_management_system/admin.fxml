@@ -53,7 +53,7 @@
             </cursor>
          </Button>
          <Separator opacity="0.5" prefWidth="200.0" />
-         <Button fx:id="insightsBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="Insights" textFill="WHITE">
+         <Button fx:id="insightsBtn" mnemonicParsing="false" onAction="#insightsView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="Insights" textFill="WHITE">
             <padding>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>

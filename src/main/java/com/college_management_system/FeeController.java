@@ -2,7 +2,9 @@ package com.college_management_system;
 
 import com.college_management_system.backend.AllConstants;
 import com.college_management_system.backend.DBConnection;
-import javafx.event.ActionEvent;
+import com.college_management_system.backend.StudentFeeDetails;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -10,10 +12,13 @@ import javafx.scene.control.*;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class FeeController implements Initializable {
+    Connection connection = DBConnection.getDBConnection();
     CommonMethods commonMethods = new CommonMethods();
     AllConstants constants = new AllConstants();
     Alert warningAlert = new Alert(Alert.AlertType.WARNING);
@@ -24,6 +29,9 @@ public class FeeController implements Initializable {
     Spinner<Integer> fee;
     @FXML
     ChoiceBox<String> branch, semester, educationYear;
+    @FXML
+    TableColumn<StudentFeeDetails, String> student_id, student_name, student_branch, student_semester,
+            student_education_year, fee_paid, date;
 
     //clear all the fields of form
     public void resetAllFields(){
@@ -39,12 +47,12 @@ public class FeeController implements Initializable {
     public void collectFees(){
         try {
            String[] studentFeeInfo = {
-                   studentId.getText(),
                    fullname.getText(),
+                   studentId.getText(),
+                   fee.getValue().toString(),
                    branch.getValue(),
                    semester.getValue(),
-                   educationYear.getValue(),
-                   fee.getValue().toString()
+                   educationYear.getValue()
            };
 
            //validate the user data if any entry found then break the operation
@@ -53,9 +61,8 @@ public class FeeController implements Initializable {
 
             LocalDate currentDate = LocalDate.now();
             //save the fees data into database
-            String saveFeesQuery = "INSERT INTO `fees` (`fullname`, `student_id`, `fee_paid`, `branch`, `semester`, " +
-                    "`education_year`, `date`) VALUES (?, ?, ?, ?, ?, ?, '"+currentDate+"')";
-            Connection connection = DBConnection.getDBConnection();
+            String saveFeesQuery = "INSERT INTO `fees` (`student_name`, `student_id`, `fee_paid`, `branch`, " +
+                    "`semester`, `education_year`, `date`) VALUES (?, ?, ?, ?, ?, ?,'"+currentDate+"')";
             PreparedStatement prepStmt = connection.prepareStatement(saveFeesQuery);
 
             for (int i = 0; i < studentFeeInfo.length; i++)
@@ -72,6 +79,7 @@ public class FeeController implements Initializable {
                 warningAlert.show();
             }
         }catch (Exception e){
+            e.printStackTrace();
             warningAlert.setAlertType(Alert.AlertType.ERROR);
             warningAlert.setContentText("Something went Wrong\nPlease try again!");
             warningAlert.show();
@@ -80,17 +88,49 @@ public class FeeController implements Initializable {
 
     public void findFeeHistory(){
         try {
-            System.out.println("find fees");
+            if (searchStudentId.getText().equals("")) return;
+            String fetchFeeHistory = "SELECT * FROM `fees` WHERE student_id='"+searchStudentId.getText()+"'";
+            ResultSet resultSet = connection.createStatement().executeQuery(fetchFeeHistory);
+
+                    System.out.println(resultSet.getString(1));
+
+
+//            if (!resultSet.next()){
+//                warningAlert.setAlertType(Alert.AlertType.ERROR);
+//                warningAlert.setContentText("Something went Wrong\nPlease try again!");
+//                warningAlert.show();
+//                return;
+//            }
+
+//            String[] feesHistory = {
+//                    resultSet.getString(2),
+//                    resultSet.getString(3),
+//                    resultSet.getString(4),
+//                    resultSet.getString(5),
+//                    resultSet.getString(6),
+//                    resultSet.getString(7),
+//                    resultSet.getString(8),
+//            };
+
+            // TODO: Fetch the fee data from the db and display it in table
+//            for (String s: feesHistory)
+//                System.out.println(s);
+
+            //add fetched data into table
+            ArrayList<StudentFeeDetails> feeData = new ArrayList<>();
+//            for (int i = 0; i < feesHistory.length; i++) {
+//                feeData.add(new StudentFeeDetails(feesHistory[i]))
+//            }
+            ObservableList<StudentFeeDetails> listObject = FXCollections.observableArrayList(feeData);
+
         }catch (Exception e){
+            e.printStackTrace();
             warningAlert.setAlertType(Alert.AlertType.ERROR);
             warningAlert.setContentText("Something went Wrong\nPlease try again!");
             warningAlert.show();
         }
     }
 
-    public void clearBtn(ActionEvent e){
-
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){

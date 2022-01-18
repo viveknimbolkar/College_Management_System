@@ -42,4 +42,9 @@ public class AdminSectionController {
         borderPane.setCenter(view);
     }
 
+    //Insights scene
+    public void insightsView(ActionEvent e) throws Exception{
+        Pane view = sceneLoader.getView("admin-dashboard.fxml");
+        borderPane.setCenter(view);
+    }
 }

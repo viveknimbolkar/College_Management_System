@@ -164,13 +164,13 @@
             </HBox>
             <TableView prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn prefWidth="125.0" text="Student ID" />
-                <TableColumn prefWidth="133.0" text="Student Name" />
-                  <TableColumn prefWidth="118.0" text="Branch" />
-                  <TableColumn minWidth="5.0" prefWidth="81.0" text="semester" />
-                  <TableColumn prefWidth="125.0" text="Education Year" />
-                  <TableColumn prefWidth="161.0" text="Fee Paid" />
-                  <TableColumn prefWidth="156.0" text="Date" />
+                <TableColumn prefWidth="125.0" text="Student Name" />
+                <TableColumn prefWidth="133.0" text="Student ID" />
+                  <TableColumn prefWidth="118.0" text="Fee Paid" />
+                  <TableColumn minWidth="5.0" prefWidth="81.0" text="Branch" />
+                  <TableColumn prefWidth="125.0" text="Semester" />
+                  <TableColumn prefWidth="161.0" text="Educational Year" />
+                  <TableColumn prefWidth="156.0" text=" Date of Payment" />
               </columns>
             </TableView>
          </children>

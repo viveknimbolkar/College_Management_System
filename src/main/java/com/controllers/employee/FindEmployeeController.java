@@ -1,8 +1,8 @@
 package com.controllers.employee;
 
 import com.college_management_system.CommonMethods;
-import com.college_management_system.backend.DBConnection;
-import com.college_management_system.backend.Person;
+import com.database.DBConnection;
+import com.beans.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

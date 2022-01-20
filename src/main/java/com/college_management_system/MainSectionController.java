@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import com.college_management_system.backend.AllConstants;
+import com.constant.AllConstants;
 
 /*
 This controller is used to manager and control main section

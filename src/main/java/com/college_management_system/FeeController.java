@@ -1,6 +1,9 @@
 package com.college_management_system;
 
-import com.college_management_system.backend.*;
+import com.beans.StudentFee;
+import com.constant.AllConstants;
+import com.database.DBConnection;
+import com.util.CustomAlerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

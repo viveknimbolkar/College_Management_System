@@ -1,7 +1,9 @@
-package com.college_management_system;
+package com.forgetpassword;
 
-import com.college_management_system.backend.DBConnection;
-import com.college_management_system.backend.SendSMS;
+import com.college_management_system.CommonMethods;
+import com.college_management_system.SceneLoader;
+import com.database.DBConnection;
+import com.services.SendSMS;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

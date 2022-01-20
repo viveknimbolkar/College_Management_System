@@ -1,9 +1,8 @@
 package com.college_management_system;
 
-import com.college_management_system.backend.DBConnection;
+import com.database.DBConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.chart.PieChart.Data;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;

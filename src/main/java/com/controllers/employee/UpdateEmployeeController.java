@@ -1,8 +1,8 @@
 package com.controllers.employee;
 
 import com.college_management_system.CommonMethods;
-import com.college_management_system.backend.AllConstants;
-import com.college_management_system.backend.DBConnection;
+import com.constant.AllConstants;
+import com.database.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

@@ -1,4 +1,4 @@
-package com.college_management_system.backend;
+package com.services;
 /*
 This class use to send otp to the respected user's mobile number for authentication.
 We are authenticating admin by otp method.

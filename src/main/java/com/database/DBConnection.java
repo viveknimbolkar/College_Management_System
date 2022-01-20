@@ -1,4 +1,4 @@
-package com.college_management_system.backend;
+package com.database;
 /*
 This class use to get the connection for mysql server db
 just call getDBConnection method and you will get connection
@@ -27,5 +27,4 @@ public class DBConnection {
         }
         return conn; //return jdbc connection to mysql
     }
-
 }

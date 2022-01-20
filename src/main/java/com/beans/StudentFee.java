@@ -1,4 +1,4 @@
-package com.college_management_system.backend;
+package com.beans;
 
 public class StudentFee {
     String studentId;

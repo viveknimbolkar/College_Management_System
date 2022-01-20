@@ -1,4 +1,4 @@
-package com.college_management_system.backend;
+package com.beans;
 /*
 This class use to represent admin
 First we create data members according to the main database, then we create getters and for setters we are using
@@ -24,6 +24,4 @@ public class Person {
     public String getProperty() {
         return property.get();
     }
-
-
 }

@@ -1,6 +1,6 @@
 package com.college_management_system;
 
-import com.college_management_system.backend.DBConnection;
+import com.database.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import com.college_management_system.backend.AllConstants;
+import com.constant.AllConstants;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;

@@ -1,4 +1,4 @@
-package com.college_management_system.backend;
+package com.constant;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

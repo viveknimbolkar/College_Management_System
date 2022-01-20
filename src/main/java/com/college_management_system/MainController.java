@@ -1,6 +1,6 @@
 package com.college_management_system;
 
-import com.college_management_system.backend.DBConnection;
+import com.database.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

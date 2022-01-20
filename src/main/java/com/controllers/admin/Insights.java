@@ -1,4 +1,4 @@
-package com.application;
+package com.controllers.admin;
 
 import com.database.DBConnection;
 import javafx.fxml.FXML;

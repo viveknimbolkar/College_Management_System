@@ -1,5 +1,6 @@
-package com.application;
+package com.controllers.student;
 
+import com.application.CommonMethods;
 import com.beans.StudentFee;
 import com.constant.AllConstants;
 import com.database.DBConnection;

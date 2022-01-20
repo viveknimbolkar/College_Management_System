@@ -44,6 +44,6 @@ Clone the project
 - Run a main method in this class
 
 ```bash
-  com.college_management_system.MainApp.java
+  com.application.MainApp.java
 ```
 

@@ -1,4 +1,4 @@
-package com.college_management_system;
+package com.application;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

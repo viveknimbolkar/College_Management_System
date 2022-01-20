@@ -1,4 +1,4 @@
-package com.college_management_system;
+package com.application;
 
 import com.database.DBConnection;
 import javafx.fxml.FXML;

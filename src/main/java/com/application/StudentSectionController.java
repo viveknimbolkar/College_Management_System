@@ -1,7 +1,5 @@
-package com.college_management_system;
+package com.application;
 
-import com.college_management_system.CommonMethods;
-import com.college_management_system.SceneLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;

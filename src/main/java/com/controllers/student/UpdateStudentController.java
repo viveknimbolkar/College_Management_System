@@ -1,6 +1,6 @@
 package com.controllers.student;
 
-import com.college_management_system.CommonMethods;
+import com.application.CommonMethods;
 import com.constant.AllConstants;
 import com.database.DBConnection;
 import javafx.event.ActionEvent;

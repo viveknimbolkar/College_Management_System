@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.college_management_system.AdminSectionController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.EmployeeSectionController">
    <left>
       <VBox prefHeight="550.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" BorderPane.alignment="CENTER">
          <Separator opacity="0.5" prefWidth="200.0" />
-         <Button fx:id="addAdminBtn" mnemonicParsing="false" onAction="#addAdminView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="Add New Admin" textFill="WHITE">
+         <Button mnemonicParsing="false" onAction="#addEmployeeView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="Add New Employee" textFill="WHITE">
             <padding>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
@@ -26,7 +26,7 @@
             </cursor>
          </Button>
          <Separator opacity="0.5" prefWidth="200.0" />
-         <Button fx:id="findAdminBtn" mnemonicParsing="false" onAction="#findAdminView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="Find Admin Details" textFill="WHITE">
+         <Button mnemonicParsing="false" onAction="#findEmployeeView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="Find Employee Details" textFill="WHITE">
             <padding>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
@@ -35,7 +35,7 @@
             </cursor>
          </Button>
          <Separator opacity="0.5" prefWidth="200.0" />
-         <Button fx:id="removeAdminBtn" mnemonicParsing="false" onAction="#removeAdminView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="Remove Existing Admin" textFill="WHITE">
+         <Button mnemonicParsing="false" onAction="#removeEmployeeView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="Remove Employee" textFill="WHITE">
             <padding>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
@@ -44,7 +44,7 @@
             </cursor>
          </Button>
          <Separator opacity="0.5" prefWidth="200.0" />
-         <Button fx:id="updateAdminBtn" mnemonicParsing="false" onAction="#updateAdminView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="Update Admin Record" textFill="WHITE">
+         <Button mnemonicParsing="false" onAction="#updateEmployeeView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="Update Employee Record" textFill="WHITE">
             <padding>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
@@ -53,7 +53,7 @@
             </cursor>
          </Button>
          <Separator opacity="0.5" prefWidth="200.0" />
-         <Button fx:id="insightsBtn" mnemonicParsing="false" onAction="#insightsView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="Insights" textFill="WHITE">
+         <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="View Documents" textFill="WHITE">
             <padding>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
@@ -62,16 +62,34 @@
             </cursor>
          </Button>
          <Separator opacity="0.5" prefWidth="200.0" />
-         <Pane prefHeight="108.0" prefWidth="200.0">
-            <Button fx:id="backBtn" layoutX="50.0" layoutY="30.0" mnemonicParsing="false" onAction="#goBack" prefHeight="35.0" prefWidth="100.0" text="Back" />
+         <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="Upload Documents" textFill="WHITE">
+            <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Separator opacity="0.5" prefWidth="200.0" />
+         <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2B4162;" text="Attendance" textFill="WHITE">
+            <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </Button>
+         <Separator opacity="0.5" prefWidth="200.0" />
+         <Pane prefHeight="127.0" prefWidth="200.0">
+            <Button layoutX="45.0" layoutY="35.0" mnemonicParsing="false" onAction="#goBack" prefHeight="35.0" prefWidth="110.0" text="Back" />
          </Pane>
       </VBox>
    </left>
    <top>
       <HBox prefHeight="54.0" prefWidth="900.0" style="-fx-background-color: #2B4162;" BorderPane.alignment="CENTER">
-         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="52.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
             <HBox.margin>
-               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
             </HBox.margin>
             <Image url="@images/clg-logo.png" />
          </ImageView>
@@ -80,15 +98,12 @@
                <Font size="26.0" />
             </font>
             <HBox.margin>
-               <Insets left="20.0" top="20.0" />
+               <Insets left="20.0" top="18.0" />
             </HBox.margin>
          </Label>
       </HBox>
    </top>
    <center>
-      <Pane prefHeight="600.0" prefWidth="900.0" BorderPane.alignment="CENTER">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Pane>
+      <Pane prefHeight="600.0" prefWidth="900.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

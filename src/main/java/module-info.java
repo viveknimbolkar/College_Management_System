@@ -5,8 +5,8 @@ module com.college_management_system {
     requires itextpdf;
 
 
-    opens com.college_management_system to javafx.fxml;
-    exports com.college_management_system;
+    opens com.application to javafx.fxml;
+    exports com.application;
     exports com.controllers.student;
     opens com.controllers.student to javafx.fxml;
     exports com.controllers.employee;

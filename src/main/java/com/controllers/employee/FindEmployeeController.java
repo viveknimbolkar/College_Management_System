@@ -1,6 +1,6 @@
 package com.controllers.employee;
 
-import com.college_management_system.CommonMethods;
+import com.application.CommonMethods;
 import com.database.DBConnection;
 import com.beans.Person;
 import javafx.collections.FXCollections;

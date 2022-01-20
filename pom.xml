@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.college_management_system/com.college_management_system.MainApp
+                            <mainClass>com.college_management_system/com.application.MainApp
                             </mainClass>
                         </configuration>
                     </execution>

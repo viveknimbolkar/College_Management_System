@@ -1,6 +1,6 @@
 package com.controllers.employee;
 
-import com.college_management_system.CommonMethods;
+import com.application.CommonMethods;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

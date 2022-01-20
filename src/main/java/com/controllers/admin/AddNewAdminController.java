@@ -3,7 +3,7 @@ package com.controllers.admin;
 This is add new admin fxml page controller
 everythong related to add-new-admin.fxml page will be handle and mange here
  */
-import com.college_management_system.CommonMethods;
+import com.application.CommonMethods;
 import com.constant.AllConstants;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

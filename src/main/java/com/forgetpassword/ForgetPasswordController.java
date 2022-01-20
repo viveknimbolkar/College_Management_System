@@ -1,7 +1,7 @@
 package com.forgetpassword;
 
-import com.college_management_system.CommonMethods;
-import com.college_management_system.SceneLoader;
+import com.application.CommonMethods;
+import com.application.SceneLoader;
 import com.database.DBConnection;
 import com.services.SendSMS;
 import javafx.event.ActionEvent;

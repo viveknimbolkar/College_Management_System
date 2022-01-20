@@ -1,4 +1,4 @@
-package com.college_management_system;
+package com.application;
 /*
 This class used to get a respected page to show into admin section scene.
 This class will return object of Pane to show into borderview of amdin scene.

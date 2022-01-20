@@ -1,4 +1,4 @@
-package com.college_management_system;
+package com.application;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

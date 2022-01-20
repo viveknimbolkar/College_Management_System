@@ -3,6 +3,8 @@ package com.controllers.admin;
 import com.application.CommonMethods;
 import com.constant.AllConstants;
 import com.database.DBConnection;
+import com.util.CustomAlerts;
+import com.util.Validation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,7 +41,8 @@ public class UpdateAdminController implements Initializable {
 
     CommonMethods commonMethods = new CommonMethods();
     Connection conn = DBConnection.getDBConnection();
-    Alert alert = new Alert(Alert.AlertType.ERROR);
+    CustomAlerts alerts = new CustomAlerts();
+    Validation validation = new Validation();
     Blob blob;
     byte[] imageBytes;
 
@@ -90,13 +93,11 @@ public class UpdateAdminController implements Initializable {
                 adminphoto.setImage(image);
 
             }else {
-                alert.setContentText("No Admin Found.\nPlease try again!");
-                alert.show();
+                alerts.warningAlert("No Admin Found.\nPlease try again!");
             }
         }catch (Exception e){
             //e.printStackTrace();
-            alert.setContentText("Something went wrong.\nPlease try again!");
-            alert.show();
+            alerts.errorAlert("Something went wrong.\nPlease try again!");
         }
 
     }
@@ -128,8 +129,8 @@ public class UpdateAdminController implements Initializable {
 
 
         //check for empty fields and alert respective value
-        boolean isAdminDataValid = commonMethods.validateAdminData(adminData);
-        boolean verifyPassword = commonMethods.verifyPassword(pwd1.getText(),pwd2.getText()); //verify two passwords
+        boolean isAdminDataValid = validation.validateFieldData(adminData);
+        boolean verifyPassword = validation.verifyPassword(pwd1.getText(),pwd2.getText()); //verify two passwords
 
         //if admin data is valid and no duplicate entry found then add info into main DB
         if (isAdminDataValid && verifyPassword){
@@ -145,8 +146,7 @@ public class UpdateAdminController implements Initializable {
                 }
             }catch (Exception e){
                 //e.printStackTrace();
-                alert.setContentText("Image size should be less than 1 MB");
-                alert.show();
+                alerts.errorAlert("Image size should be less than 1 MB");
             }
         }
     }

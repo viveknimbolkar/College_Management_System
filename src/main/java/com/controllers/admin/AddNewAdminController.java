@@ -5,6 +5,8 @@ everythong related to add-new-admin.fxml page will be handle and mange here
  */
 import com.application.CommonMethods;
 import com.constant.AllConstants;
+import com.util.CustomAlerts;
+import com.util.Validation;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleGroup;
@@ -27,7 +29,8 @@ public class AddNewAdminController implements Initializable {
 
     CommonMethods commonMethods = new CommonMethods();
     ToggleGroup toggleGroup = new ToggleGroup();
-    Alert alert = new Alert(Alert.AlertType.WARNING);
+    CustomAlerts alerts = new CustomAlerts();
+    Validation validation = new Validation();
     File userImg;
 
     @FXML
@@ -75,7 +78,7 @@ public class AddNewAdminController implements Initializable {
             };
 
             //check for empty fields and alert respective value
-            boolean isAdminDataValid = commonMethods.validateAdminData(adminData);
+            boolean isAdminDataValid = validation.validateFieldData(adminData);
             boolean verifyPassword = verifyPassword();
             boolean duplicateEntry = commonMethods.checkForDuplicateEntry("admin",adminData[0]);
 
@@ -93,17 +96,14 @@ public class AddNewAdminController implements Initializable {
                         }
                     }catch (Exception e){
                         //e.printStackTrace();
-                        alert.setContentText("Image size should be less than 1MB");
-                        alert.show();
+                       alerts.warningAlert("Image size should be less than 1MB");
                     }
                 }else if (duplicateEntry){
-                    alert.setContentText("This administrator already exist!");
-                    alert.show();
+                    alerts.warningAlert("This administrator already exist!");
                 }
         }catch (NullPointerException e){
             //e.printStackTrace();
-            alert.setContentText("Something went wrong.\nPlease try again!");
-            alert.show();
+           alerts.errorAlert("Something went wrong.\nPlease try again!");
         }
     }
 
@@ -111,8 +111,7 @@ public class AddNewAdminController implements Initializable {
     public boolean verifyPassword(){
         //check for password validation
         if (!pwd1.getText().equals(pwd2.getText())){
-            alert.setContentText("Password not matched!");
-            alert.show();
+           alerts.warningAlert("Password not matched!");
             return false;
         }
         return true;

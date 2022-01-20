@@ -2,6 +2,8 @@ package com.controllers.student;
 
 import com.application.CommonMethods;
 import com.constant.AllConstants;
+import com.util.CustomAlerts;
+import com.util.Validation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,7 +30,8 @@ public class AddNewStudentController implements Initializable {
     AllConstants allConstants = new AllConstants();
     ToggleGroup toggleGroup = new ToggleGroup();
     CommonMethods commonMethods = new CommonMethods();
-    Alert alert = new Alert(Alert.AlertType.WARNING);
+    CustomAlerts alerts = new CustomAlerts();
+    Validation validation = new Validation();
     File studentImg;
 
     @FXML
@@ -80,7 +83,7 @@ public class AddNewStudentController implements Initializable {
             };
 
             //validate student data and also check for duplicate entry in student table
-            boolean isStudentDataValid = commonMethods.validateAdminData(studentData);
+            boolean isStudentDataValid = validation.validateFieldData(studentData);
             boolean duplicateEntry = commonMethods.checkForDuplicateEntry("student",studentData[3]);
 
             //if student data is valid and no duplicate record found then add studentdata into database
@@ -98,22 +101,18 @@ public class AddNewStudentController implements Initializable {
                     }
                 }catch (Exception e){
                     //e.printStackTrace();
-                    alert.setContentText("Image size should be less than 1MB");
-                    alert.show();
+                    alerts.errorAlert("Image size should be less than 1MB");
                 }
             }else if (duplicateEntry){
                 //if any duplicate entry found in database
-                alert.setContentText("This student already exists!");
-                alert.show();
+                alerts.warningAlert("This student already exists!");
             }else {
                 //if any error occurs in adding data or any exception
-                alert.setContentText("Student data not added.\n Please try again!");
-                alert.show();
+               alerts.errorAlert("Student data not added.\n Please try again!");
             }
         }catch (Exception e){
             //e.printStackTrace();
-            alert.setContentText("Something went wrong.\n Select Gender\n Please try again!");
-            alert.show();
+            alerts.errorAlert("Something went wrong.\n Select Gender\n Please try again!");
         }
     }
 

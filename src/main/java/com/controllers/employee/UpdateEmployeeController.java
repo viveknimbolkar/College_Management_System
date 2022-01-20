@@ -3,6 +3,8 @@ package com.controllers.employee;
 import com.application.CommonMethods;
 import com.constant.AllConstants;
 import com.database.DBConnection;
+import com.util.CustomAlerts;
+import com.util.Validation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,7 +30,8 @@ public class UpdateEmployeeController implements Initializable {
 
     CommonMethods commonMethods = new CommonMethods();
     Connection conn = DBConnection.getDBConnection();
-    Alert alert = new Alert(Alert.AlertType.ERROR);
+    CustomAlerts alerts = new CustomAlerts();
+    Validation validation = new Validation();
     Blob blob;
     byte[] imageBytes;
     File tempemployeeImage;
@@ -117,13 +120,11 @@ public class UpdateEmployeeController implements Initializable {
                 employeephoto.setImage(image);
 
             }else {
-                alert.setContentText("Employee Not Found.\nPlease try again!");
-                alert.show();
+               alerts.errorAlert("Employee Not Found.\nPlease try again!");
             }
         }catch (Exception e){
             //e.printStackTrace();
-            alert.setContentText("Something went wrong.\nPlease try again!");
-            alert.show();
+           alerts.errorAlert("Something went wrong.\nPlease try again!");
         }
 
     }
@@ -154,7 +155,7 @@ public class UpdateEmployeeController implements Initializable {
         };
 
         //check for empty fields and alert respective value
-        boolean isStudentDataValid = commonMethods.validateAdminData(employeeData);
+        boolean isStudentDataValid = validation.validateFieldData(employeeData);
 
         //if admin data is valid and no duplicate entry found then add info into main DB
         if (isStudentDataValid){
@@ -169,9 +170,8 @@ public class UpdateEmployeeController implements Initializable {
                     successAlert.show();
                 }
             }catch (Exception e){
-                e.printStackTrace();
-                alert.setContentText("Image size should be less than 1 MB");
-                alert.show();
+                //e.printStackTrace();
+               alerts.errorAlert("Image size should be less than 1 MB");
             }
         }
     }

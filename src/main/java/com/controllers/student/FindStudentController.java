@@ -2,15 +2,15 @@ package com.controllers.student;
 /*
 This controller is used to show specific details about Student inside a table
  */
-import com.application.CommonMethods;
 import com.beans.Person;
 import com.database.DBConnection;
+import com.tools.CreatePDF;
+import com.util.CustomAlerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -34,8 +34,8 @@ public class FindStudentController implements Initializable {
     @FXML
     private TableColumn<Person,String> details;
 
-    Alert alert = new Alert(Alert.AlertType.WARNING);
-    CommonMethods commonMethods = new CommonMethods();
+    CreatePDF createPDF = new CreatePDF();
+    CustomAlerts alerts = new CustomAlerts();
     File studentDetails;
     String[] toWriteIntoPdf;
 
@@ -115,14 +115,11 @@ public class FindStudentController implements Initializable {
                 table.setItems(list);
 
             }else {
-                alert.setContentText("Student Details Not Found!\nCheck Student ID again!");
-                alert.show();
+               alerts.errorAlert("Student Details Not Found!\nCheck Student ID again!");
             }
         }catch (Exception e){
-            e.printStackTrace();
-            alert.setAlertType(Alert.AlertType.ERROR);
-            alert.setContentText("Something went Wrong\nPlease try again!");
-            alert.show();
+            //e.printStackTrace();
+            alerts.errorAlert("Something went Wrong\nPlease try again!");
 
         }
     }
@@ -137,7 +134,7 @@ public class FindStudentController implements Initializable {
 
         );
         studentDetails = fileChooser.showSaveDialog(null);
-        commonMethods.createClientPDFFile("Student", toWriteIntoPdf, studentDetails);
+        createPDF.createClientPDFFile("Student", toWriteIntoPdf, studentDetails);
     }
 
     @Override

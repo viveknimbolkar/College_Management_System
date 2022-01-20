@@ -3,6 +3,8 @@ package com.controllers.student;
 import com.application.CommonMethods;
 import com.constant.AllConstants;
 import com.database.DBConnection;
+import com.util.CustomAlerts;
+import com.util.Validation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,6 +29,7 @@ import java.util.ResourceBundle;
 public class UpdateStudentController implements Initializable {
 
     AllConstants allConstants = new AllConstants();
+    CustomAlerts alerts = new CustomAlerts();
     File tempstudentImage;
 
     @FXML
@@ -43,6 +46,7 @@ public class UpdateStudentController implements Initializable {
     CommonMethods commonMethods = new CommonMethods();
     Connection conn = DBConnection.getDBConnection();
     Alert alert = new Alert(Alert.AlertType.ERROR);
+    Validation validation = new Validation();
     Blob blob;
     byte[] imageBytes;
 
@@ -138,7 +142,7 @@ public class UpdateStudentController implements Initializable {
         };
 
         //check for empty fields and alert respective value
-        boolean isStudentDataValid = commonMethods.validateAdminData(studentData);
+        boolean isStudentDataValid = validation.validateFieldData(studentData);
 
         //if admin data is valid and no duplicate entry found then add info into main DB
         if (isStudentDataValid){
@@ -148,14 +152,11 @@ public class UpdateStudentController implements Initializable {
                 boolean status = commonMethods.updateClientData("student", fileInputStream, studentData, studentId);
                 //acknowledge user that data added successfully
                 if (status){
-                    Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-                    successAlert.setContentText("Student Updated Successfully!");
-                    successAlert.show();
+                   alerts.infoAlert("Student Updated Successfully!");
                 }
             }catch (Exception e){
                 //e.printStackTrace();
-                alert.setContentText("Image size should be less than 1 MB");
-                alert.show();
+                alerts.warningAlert("Image size should be less than 1 MB");
             }
         }
     }

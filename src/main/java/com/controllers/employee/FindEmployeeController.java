@@ -3,11 +3,12 @@ package com.controllers.employee;
 import com.application.CommonMethods;
 import com.database.DBConnection;
 import com.beans.Person;
+import com.tools.CreatePDF;
+import com.util.CustomAlerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -29,8 +30,9 @@ public class FindEmployeeController {
     @FXML
     private TableColumn<Person,String> details;
 
-    Alert alert = new Alert(Alert.AlertType.WARNING);
+    CustomAlerts alerts = new CustomAlerts();
     CommonMethods commonMethods = new CommonMethods();
+    CreatePDF createPDF = new CreatePDF();
     File employeeDetails;
     String[] toWriteIntoPdf;
 
@@ -96,14 +98,11 @@ public class FindEmployeeController {
                 table.setItems(list);
 
             }else {
-                alert.setContentText("Employee Details Not Found!\nCheck Employee ID again!");
-                alert.show();
+                alerts.warningAlert("Employee Details Not Found!\nCheck Employee ID again!");
             }
         }catch (Exception e){
-            e.printStackTrace();
-            alert.setAlertType(Alert.AlertType.ERROR);
-            alert.setContentText("Something went Wrong\nPlease try again!");
-            alert.show();
+            //e.printStackTrace();
+            alerts.errorAlert("Something went Wrong\nPlease try again!");
         }
     }
 
@@ -116,6 +115,6 @@ public class FindEmployeeController {
 
         );
         employeeDetails = fileChooser.showSaveDialog(null);
-        commonMethods.createClientPDFFile("Employee", toWriteIntoPdf, employeeDetails);
+        createPDF.createClientPDFFile("Employee", toWriteIntoPdf, employeeDetails);
     }
 }

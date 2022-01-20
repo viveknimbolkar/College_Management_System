@@ -2,11 +2,12 @@ package com.controllers.employee;
 
 import com.application.CommonMethods;
 import com.constant.AllConstants;
+import com.util.CustomAlerts;
+import com.util.Validation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
@@ -27,7 +28,8 @@ public class AddNewEmployeeController implements Initializable {
 
     CommonMethods commonMethods = new CommonMethods();
     ToggleGroup toggleGroup = new ToggleGroup();
-    Alert alert = new Alert(Alert.AlertType.WARNING);
+    CustomAlerts alerts = new CustomAlerts();
+    Validation validation = new Validation();
     File employeeImg;
 
     @FXML
@@ -74,7 +76,7 @@ public class AddNewEmployeeController implements Initializable {
             };
 
             //validate student data and also check for duplicate entry in student table
-            boolean isStudentDataValid = commonMethods.validateAdminData(studentData);
+            boolean isStudentDataValid = validation.validateFieldData(studentData);
             boolean duplicateEntry = commonMethods.checkForDuplicateEntry("employee",studentData[3]);
 
             //if student data is valid and no duplicate record found then add studentdata into database
@@ -85,29 +87,22 @@ public class AddNewEmployeeController implements Initializable {
                     boolean addStudentData = commonMethods.addDataIntoRespectedDB("employee", fileInputStream, studentData);
 
                     if (addStudentData){
-                        System.out.println("added");
-                        Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-                        successAlert.setContentText("Employee Added Successfully!");
-                        successAlert.show();
+                        alerts.infoAlert("Employee Added Successfully!");
                     }
                 }catch (Exception e){
                     //e.printStackTrace();
-                    alert.setContentText("Image size should be less than 1 MB");
-                    alert.show();
+                    alerts.errorAlert("Image size should be less than 1 MB");
                 }
             }else if (duplicateEntry){
                 //if any duplicate entry found in database
-                alert.setContentText("This employee already exists!");
-                alert.show();
+                alerts.warningAlert("This employee already exists!");
             }else {
                 //if any error occurs in adding data or any exception
-                alert.setContentText("Employee data not added.\n Please try again!");
-                alert.show();
+                alerts.errorAlert("Employee data not added.\n Please try again!");
             }
         }catch (Exception e){
             //e.printStackTrace();
-            alert.setContentText("Something went wrong.\n Select Gender\n Please try again!");
-            alert.show();
+           alerts.errorAlert("Something went wrong.\n Select Gender\n Please try again!");
         }
     }
 

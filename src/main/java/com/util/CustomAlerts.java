@@ -1,5 +1,5 @@
 package com.util;
-
+// user alert methods
 import javafx.scene.control.Alert;
 
 public class CustomAlerts {

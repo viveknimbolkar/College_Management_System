@@ -5,6 +5,8 @@ This controller is used to show specific details about admin inside a table
 import com.application.CommonMethods;
 import com.beans.Person;
 import com.database.DBConnection;
+import com.tools.CreatePDF;
+import com.util.CustomAlerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -33,8 +35,9 @@ public class FindAdminController implements Initializable {
     @FXML
     private TableColumn<Person,String> details;
 
-    Alert alert = new Alert(Alert.AlertType.WARNING);
+    CustomAlerts alerts = new CustomAlerts();
     CommonMethods commonMethods = new CommonMethods();
+    CreatePDF createPDF = new CreatePDF();
     File adminDetails;
 
     String[] toWriteIntoPdf;
@@ -101,21 +104,18 @@ public class FindAdminController implements Initializable {
                 table.setItems(list);
 
             }else {
-                alert.setContentText("Admin Details Not Found!\nCheck Admin ID again!");
-                alert.show();
+               alerts.warningAlert("Admin Details Not Found!\nCheck Admin ID again!");
             }
 
         }catch (Exception e){
             //e.printStackTrace();
-            alert.setAlertType(Alert.AlertType.ERROR);
-            alert.setContentText("Something went Wrong\nPlease try again!");
-            alert.show();
+            alerts.errorAlert("Something went Wrong\nPlease try again!");
             String handle = "vivek nimbolkar";
         }
     }
 
     public void generatePdfFile(ActionEvent event) throws Exception{
-        commonMethods.createClientPDFFile("Admin", toWriteIntoPdf, adminDetails);
+        createPDF.createClientPDFFile("Admin", toWriteIntoPdf, adminDetails);
     }
 
     @Override

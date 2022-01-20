@@ -4,6 +4,7 @@ import com.beans.StudentFee;
 import com.constant.AllConstants;
 import com.database.DBConnection;
 import com.util.CustomAlerts;
+import com.util.Validation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,6 +26,7 @@ public class FeeController implements Initializable {
     CommonMethods commonMethods = new CommonMethods();
     AllConstants constants = new AllConstants();
     CustomAlerts alert = new CustomAlerts();
+    Validation validation = new Validation();
 
     @FXML
     TextField studentId, fullname, searchStudentId;
@@ -61,7 +63,7 @@ public class FeeController implements Initializable {
            };
 
            //validate the user data if any entry found then break the operation
-            if (!commonMethods.validateAdminData(studentFeeInfo))
+            if (!validation.validateFieldData(studentFeeInfo))
                 return;
 
             LocalDate currentDate = LocalDate.now();

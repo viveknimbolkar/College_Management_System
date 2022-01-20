@@ -1,11 +1,11 @@
 package com.application;
 
 import com.database.DBConnection;
+import com.util.CustomAlerts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
@@ -21,7 +21,7 @@ import javafx.scene.Parent;
 public class MainController{
 
     TextInputDialog tid = new TextInputDialog();
-    Alert alert = new Alert(Alert.AlertType.NONE);
+    CustomAlerts alerts = new CustomAlerts();
     CommonMethods commonMethods = new CommonMethods();
 
     @FXML
@@ -91,18 +91,13 @@ public class MainController{
 
             }else {
                 //if admin not found
-                alert.setAlertType(Alert.AlertType.ERROR);
-                //set alert if no admin found
-                alert.setContentText("Email address or Password dosen't matched! Please enter correct one.");
-                alert.show();
+                alerts.warningAlert("Email address or Password dosen't matched! Please enter correct one.");
             }
             con.close();
 
         }catch (Exception ex){
-            ex.printStackTrace();
-            alert.setAlertType(Alert.AlertType.ERROR);
-            alert.setContentText("Internal Server Error!\n Please try again later.");
-            alert.show();
+            //ex.printStackTrace();
+            alerts.errorAlert("Internal Server Error!\n Please try again later.");
         }
     }
 

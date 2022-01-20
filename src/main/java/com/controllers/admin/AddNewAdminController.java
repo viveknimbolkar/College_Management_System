@@ -1,8 +1,9 @@
-package com.college_management_system;
+package com.controllers.admin;
 /*
 This is add new admin fxml page controller
 everythong related to add-new-admin.fxml page will be handle and mange here
  */
+import com.college_management_system.CommonMethods;
 import com.college_management_system.backend.AllConstants;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

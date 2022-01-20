@@ -1,5 +1,6 @@
-package com.college_management_system;
+package com.controllers.employee;
 
+import com.college_management_system.CommonMethods;
 import com.college_management_system.backend.AllConstants;
 import com.college_management_system.backend.DBConnection;
 import javafx.event.ActionEvent;

@@ -1,13 +1,12 @@
 package com.college_management_system;
 
-import com.college_management_system.backend.AllConstants;
-import com.college_management_system.backend.DBConnection;
-import com.college_management_system.backend.StudentFeeDetails;
+import com.college_management_system.backend.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -15,13 +14,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class FeeController implements Initializable {
     Connection connection = DBConnection.getDBConnection();
     CommonMethods commonMethods = new CommonMethods();
     AllConstants constants = new AllConstants();
-    Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+    CustomAlerts alert = new CustomAlerts();
 
     @FXML
     TextField studentId, fullname, searchStudentId;
@@ -30,7 +30,9 @@ public class FeeController implements Initializable {
     @FXML
     ChoiceBox<String> branch, semester, educationYear;
     @FXML
-    TableColumn<StudentFeeDetails, String> student_id, student_name, student_branch, student_semester,
+    TableView<StudentFee> feeTable;
+    @FXML
+    TableColumn<StudentFee, String> student_id, student_name, student_branch, student_semester,
             student_education_year, fee_paid, date;
 
     //clear all the fields of form
@@ -70,64 +72,54 @@ public class FeeController implements Initializable {
 
             int queryStatus = prepStmt.executeUpdate();
             if (queryStatus == 1){
-                warningAlert.setAlertType(Alert.AlertType.INFORMATION);
-                warningAlert.setContentText("Fee Paid Successfully!");
-                warningAlert.show();
+                alert.infoAlert("Fee paid successfully!");
             }else {
-                warningAlert.setAlertType(Alert.AlertType.ERROR);
-                warningAlert.setContentText("Fees Not Paid. Try again!");
-                warningAlert.show();
+               alert.warningAlert("Fees Not Paid. Try again!");
             }
         }catch (Exception e){
             e.printStackTrace();
-            warningAlert.setAlertType(Alert.AlertType.ERROR);
-            warningAlert.setContentText("Something went Wrong\nPlease try again!");
-            warningAlert.show();
+            alert.errorAlert("Something went Wrong\nPlease try again!");
         }
     }
 
     public void findFeeHistory(){
         try {
             if (searchStudentId.getText().equals("")) return;
+            // store the data fetched by result set
+            List<StudentFee> studentFeeList = new ArrayList<>();
             String fetchFeeHistory = "SELECT * FROM `fees` WHERE student_id='"+searchStudentId.getText()+"'";
-            ResultSet resultSet = connection.createStatement().executeQuery(fetchFeeHistory);
+            PreparedStatement preparedStatement = connection.prepareStatement(fetchFeeHistory);
+            ResultSet result = preparedStatement.executeQuery();
 
-                    System.out.println(resultSet.getString(1));
 
+            //store fetched data into a list
+            while (result.next()){
+                studentFeeList.add(new StudentFee(
+                        result.getString(2),
+                        result.getString(3),
+                        result.getString(4),
+                        result.getString(5),
+                        result.getString(6),
+                        result.getString(7),
+                        result.getString(8)
+                ));
+            }
 
-//            if (!resultSet.next()){
-//                warningAlert.setAlertType(Alert.AlertType.ERROR);
-//                warningAlert.setContentText("Something went Wrong\nPlease try again!");
-//                warningAlert.show();
-//                return;
-//            }
+            // add fetched data into the list
+            ObservableList<StudentFee> observableList = FXCollections.observableArrayList(studentFeeList);
+            student_id.setCellValueFactory(new PropertyValueFactory<>("studentId"));
+            student_name.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+            student_branch.setCellValueFactory(new PropertyValueFactory<>("feePaid"));
+            student_semester.setCellValueFactory(new PropertyValueFactory<>("branch"));
+            student_education_year.setCellValueFactory(new PropertyValueFactory<>("semester"));
+            fee_paid.setCellValueFactory(new PropertyValueFactory<>("educationYear"));
+            date.setCellValueFactory(new PropertyValueFactory<>("date"));
 
-//            String[] feesHistory = {
-//                    resultSet.getString(2),
-//                    resultSet.getString(3),
-//                    resultSet.getString(4),
-//                    resultSet.getString(5),
-//                    resultSet.getString(6),
-//                    resultSet.getString(7),
-//                    resultSet.getString(8),
-//            };
-
-            // TODO: Fetch the fee data from the db and display it in table
-//            for (String s: feesHistory)
-//                System.out.println(s);
-
-            //add fetched data into table
-            ArrayList<StudentFeeDetails> feeData = new ArrayList<>();
-//            for (int i = 0; i < feesHistory.length; i++) {
-//                feeData.add(new StudentFeeDetails(feesHistory[i]))
-//            }
-            ObservableList<StudentFeeDetails> listObject = FXCollections.observableArrayList(feeData);
+            feeTable.setItems(observableList);
 
         }catch (Exception e){
             e.printStackTrace();
-            warningAlert.setAlertType(Alert.AlertType.ERROR);
-            warningAlert.setContentText("Something went Wrong\nPlease try again!");
-            warningAlert.show();
+            alert.errorAlert("Something went Wrong\nPlease try again!");
         }
     }
 

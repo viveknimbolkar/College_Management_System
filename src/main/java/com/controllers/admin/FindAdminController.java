@@ -1,7 +1,8 @@
-package com.college_management_system;
+package com.controllers.admin;
 /*
 This controller is used to show specific details about admin inside a table
  */
+import com.college_management_system.CommonMethods;
 import com.college_management_system.backend.Person;
 import com.college_management_system.backend.DBConnection;
 import javafx.collections.FXCollections;

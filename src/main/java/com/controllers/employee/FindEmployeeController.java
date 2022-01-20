@@ -1,5 +1,6 @@
-package com.college_management_system;
+package com.controllers.employee;
 
+import com.college_management_system.CommonMethods;
 import com.college_management_system.backend.DBConnection;
 import com.college_management_system.backend.Person;
 import javafx.collections.FXCollections;

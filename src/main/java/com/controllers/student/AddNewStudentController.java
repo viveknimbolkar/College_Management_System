@@ -1,10 +1,18 @@
-package com.college_management_system;
+package com.controllers.student;
 
+import com.college_management_system.CommonMethods;
 import com.college_management_system.backend.AllConstants;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -15,28 +23,31 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AddNewEmployeeController implements Initializable {
+public class AddNewStudentController implements Initializable {
 
-    CommonMethods commonMethods = new CommonMethods();
+    AllConstants allConstants = new AllConstants();
     ToggleGroup toggleGroup = new ToggleGroup();
+    CommonMethods commonMethods = new CommonMethods();
     Alert alert = new Alert(Alert.AlertType.WARNING);
-    File employeeImg;
+    File studentImg;
 
     @FXML
-    private TextField firstname, middlename, lastname, email, phoneno, homeaddress, qualification, employeeid, cast,
-            city, taluka, district, pincode,experience, country, subject;
+    private TextField firstname, middlename, lastname, email, phoneno, homeaddress, cast, city,
+    taluka, district, cetpercentage, pincode, studentid, country, sscmarks, hscmarks;
     @FXML
-    private ChoiceBox<String> state, category;
-    @FXML
-    private Spinner<Integer> salary;
+    private ChoiceBox<String> state, category, educationyear, semester, branch;
     @FXML
     private DatePicker dob;
     @FXML
+    private Spinner<Integer> fee;
+    @FXML
     private RadioButton male,female;
     @FXML
-    private ImageView employeephoto;
+    private ImageView studentphoto;
 
-    public void addNewEmployee(){
+    //add new student into database
+    public void addNewStudent(){
+
         try {
             RadioButton rb = (RadioButton) toggleGroup.getSelectedToggle();
             String gender = rb.getText(); //store gender
@@ -52,48 +63,51 @@ public class AddNewEmployeeController implements Initializable {
                     district.getText(),
                     country.getText(),
                     taluka.getText(),
-                    qualification.getText(),
-                    cast.getText(),
-                    dob.getEditor().getText(),
-                    experience.getText(),
                     pincode.getText(),
-                    employeeid.getText(),
-                    String.valueOf(salary.getValue()),
+                    sscmarks.getText(),
+                    hscmarks.getText(),
                     category.getValue(),
-                    subject.getText(),
+                    cast.getText(),
+                    studentid.getText(),
+                    String.valueOf(fee.getValue()),
+                    state.getValue(),
+                    cetpercentage.getText(),
+                    branch.getValue(),
+                    educationyear.getValue(),
+                    semester.getValue(),
                     gender,
-                    state.getValue()
+                    dob.getEditor().getText()
             };
 
             //validate student data and also check for duplicate entry in student table
             boolean isStudentDataValid = commonMethods.validateAdminData(studentData);
-            boolean duplicateEntry = commonMethods.checkForDuplicateEntry("employee",studentData[3]);
+            boolean duplicateEntry = commonMethods.checkForDuplicateEntry("student",studentData[3]);
 
             //if student data is valid and no duplicate record found then add studentdata into database
             if (isStudentDataValid && !duplicateEntry){
                 try {
                     //get image of student
-                    FileInputStream fileInputStream = new FileInputStream(employeeImg);
-                    boolean addStudentData = commonMethods.addDataIntoRespectedDB("employee", fileInputStream, studentData);
+                    FileInputStream fileInputStream = new FileInputStream(studentImg);
+                    boolean addStudentData = commonMethods.addDataIntoRespectedDB("student", fileInputStream, studentData);
 
                     if (addStudentData){
                         System.out.println("added");
                         Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-                        successAlert.setContentText("Employee Added Successfully!");
+                        successAlert.setContentText("Student Added Successfully!");
                         successAlert.show();
                     }
                 }catch (Exception e){
                     //e.printStackTrace();
-                    alert.setContentText("Image size should be less than 1 MB");
+                    alert.setContentText("Image size should be less than 1MB");
                     alert.show();
                 }
             }else if (duplicateEntry){
                 //if any duplicate entry found in database
-                alert.setContentText("This employee already exists!");
+                alert.setContentText("This student already exists!");
                 alert.show();
             }else {
                 //if any error occurs in adding data or any exception
-                alert.setContentText("Employee data not added.\n Please try again!");
+                alert.setContentText("Student data not added.\n Please try again!");
                 alert.show();
             }
         }catch (Exception e){
@@ -103,9 +117,7 @@ public class AddNewEmployeeController implements Initializable {
         }
     }
 
-
-
-    public void chooseEmployeeImg(ActionEvent event) throws Exception{
+    public void chooseStudentImg(ActionEvent event) throws Exception{
         FileChooser fileChooser = new FileChooser();
         //only this type of files are allow
         fileChooser.getExtensionFilters().addAll(
@@ -113,14 +125,13 @@ public class AddNewEmployeeController implements Initializable {
                 new FileChooser.ExtensionFilter(".jpeg","*.jpeg"),
                 new FileChooser.ExtensionFilter(".png","*.png")
         );
-        employeeImg = fileChooser.showOpenDialog(null);
+        studentImg = fileChooser.showOpenDialog(null);
         //setting image to ImageView
-        InputStream inputStream = new FileInputStream(employeeImg);
+        InputStream inputStream = new FileInputStream(studentImg);
         Image image = new Image(inputStream);
-        employeephoto.setImage(image);
+        studentphoto.setImage(image);
     }
 
-    AllConstants allConstants = new AllConstants();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //set state list
@@ -131,18 +142,30 @@ public class AddNewEmployeeController implements Initializable {
         category.setItems(allConstants.getCategories());
         category.show();
 
+        //set branch list
+        branch.setItems(allConstants.getBranchList());
+        branch.show();
+
+        //set semester list
+        semester.setItems(allConstants.getSemestersList());
+        semester.show();
+
+        //set semester list
+        educationyear.setItems(allConstants.getEducationalYearList());
+        educationyear.show();
+
         //radio button value should be one
         male.setToggleGroup(toggleGroup);
         female.setToggleGroup(toggleGroup);
 
-        //set unique employee id
-        employeeid.setText(String.valueOf(commonMethods.getRandomNumber()));
+        //set student id
+        studentid.setText(String.valueOf(commonMethods.getRandomNumber()));
 
         //set fee values
         SpinnerValueFactory<Integer> stringSpinnerValueFactory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 21474836,100);
 
-        salary.setValueFactory(stringSpinnerValueFactory);
-        salary.setEditable(true);
+        fee.setValueFactory(stringSpinnerValueFactory);
+        fee.setEditable(true);
     }
 }

@@ -5,7 +5,6 @@ import com.constant.AllConstants;
 import com.database.DBConnection;
 import com.util.CustomAlerts;
 import com.util.Validation;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -59,7 +58,7 @@ public class UpdateEmployeeController implements Initializable {
     @FXML
     private ImageView employeephoto;
 
-    public void chooseEmployeeImg(ActionEvent event) throws Exception{
+    public void chooseEmployeeImg() throws Exception{
         FileChooser fileChooser = new FileChooser();
         //only this type of files are allow
         fileChooser.getExtensionFilters().addAll(

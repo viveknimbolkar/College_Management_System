@@ -5,7 +5,6 @@ import com.constant.AllConstants;
 import com.database.DBConnection;
 import com.util.CustomAlerts;
 import com.util.Validation;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
@@ -161,7 +160,7 @@ public class UpdateStudentController implements Initializable {
         }
     }
 
-    public void chooseAdminImg(ActionEvent event) throws Exception{
+    public void chooseAdminImg() throws Exception{
         FileChooser fileChooser = new FileChooser();
         //only this type of files are allow
         fileChooser.getExtensionFilters().addAll(

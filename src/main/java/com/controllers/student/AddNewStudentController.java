@@ -116,7 +116,7 @@ public class AddNewStudentController implements Initializable {
         }
     }
 
-    public void chooseStudentImg(ActionEvent event) throws Exception{
+    public void chooseStudentImg() throws Exception{
         FileChooser fileChooser = new FileChooser();
         //only this type of files are allow
         fileChooser.getExtensionFilters().addAll(

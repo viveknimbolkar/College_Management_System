@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.AdminSectionController">
+   <children>
+      <ImageView fitHeight="152.0" fitWidth="258.0" layoutX="171.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/sipna_college.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="16.0" layoutY="158.0" prefHeight="65.0" prefWidth="568.0" text="Sipna College of Engineering and Technology" textAlignment="CENTER" textFill="#0272d1" wrapText="true">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="242.0" text="Developed by:" textFill="#af06cd">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="274.0" text="Contact:" textFill="#af06cd">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="238.0" layoutY="276.0" text="nimbolkarvivek56@gmail.com">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="305.0" text="Software Version:" textFill="#af06cd">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="237.0" layoutY="307.0" text="v1.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="237.0" layoutY="244.0" text="Vivek Nimbolkar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="165.0" layoutY="357.0" text="\@Copyright, 2020-2022, Vivek Nimbolkar" />
+   </children>
+</Pane>

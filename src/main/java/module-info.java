@@ -3,6 +3,7 @@ module com.college_management_system {
     requires javafx.fxml;
     requires java.sql;
     requires itextpdf;
+    requires java.desktop;
 
 
     opens com.application to javafx.fxml;

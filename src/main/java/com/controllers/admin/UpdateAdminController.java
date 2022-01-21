@@ -151,7 +151,7 @@ public class UpdateAdminController implements Initializable {
         }
     }
 
-    public void chooseAdminImg(ActionEvent event) throws Exception{
+    public void chooseAdminImg() throws Exception{
         FileChooser fileChooser = new FileChooser();
         //only this type of files are allow
         fileChooser.getExtensionFilters().addAll(

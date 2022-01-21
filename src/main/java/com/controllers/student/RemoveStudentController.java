@@ -1,7 +1,6 @@
 package com.controllers.student;
 
 import com.application.CommonMethods;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -21,7 +20,7 @@ public class RemoveStudentController {
             ButtonType.YES,ButtonType.CANCEL
     );
 
-    public void removeStudentFromDB(ActionEvent event) throws Exception {
+    public void removeStudentFromDB() throws Exception {
         String studentid = studentId.getText();
         alert.setContentText("Do you really want to delete this Student?\nThis process cannot be undone!");
         alert.showAndWait();

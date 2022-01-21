@@ -31,13 +31,12 @@ public class FindEmployeeController {
     private TableColumn<Person,String> details;
 
     CustomAlerts alerts = new CustomAlerts();
-    CommonMethods commonMethods = new CommonMethods();
     CreatePDF createPDF = new CreatePDF();
     File employeeDetails;
     String[] toWriteIntoPdf;
 
     //find employee
-    public void findEmployeeDetails(ActionEvent event){
+    public void findEmployeeDetails(){
         String employeeId = employeeid.getText();
         try {
             Connection connection = DBConnection.getDBConnection();
@@ -107,7 +106,7 @@ public class FindEmployeeController {
     }
 
     //generate pdf file of student details
-    public void generatePdfFile(ActionEvent event) throws Exception{
+    public void generatePdfFile() throws Exception{
         FileChooser fileChooser = new FileChooser();
         //only this type of files are allow
         fileChooser.getExtensionFilters().addAll(

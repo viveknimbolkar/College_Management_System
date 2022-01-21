@@ -1,7 +1,6 @@
 package com.controllers.admin;
 
 import com.application.CommonMethods;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -21,7 +20,7 @@ public class RemoveAdminController {
             ButtonType.YES,ButtonType.CANCEL
     );
 
-    public void removeAdminFromDB(ActionEvent event) throws Exception {
+    public void removeAdminFromDB() throws Exception {
 
         String adminid = adminId.getText();
 

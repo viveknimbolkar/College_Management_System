@@ -4,7 +4,6 @@ import com.application.CommonMethods;
 import com.constant.AllConstants;
 import com.util.CustomAlerts;
 import com.util.Validation;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleGroup;
@@ -108,7 +107,7 @@ public class AddNewEmployeeController implements Initializable {
 
 
 
-    public void chooseEmployeeImg(ActionEvent event) throws Exception{
+    public void chooseEmployeeImg() throws Exception{
         FileChooser fileChooser = new FileChooser();
         //only this type of files are allow
         fileChooser.getExtensionFilters().addAll(

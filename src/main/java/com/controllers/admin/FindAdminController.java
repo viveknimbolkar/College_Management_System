@@ -2,17 +2,14 @@ package com.controllers.admin;
 /*
 This controller is used to show specific details about admin inside a table
  */
-import com.application.CommonMethods;
 import com.beans.Person;
 import com.database.DBConnection;
 import com.tools.CreatePDF;
 import com.util.CustomAlerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -36,14 +33,13 @@ public class FindAdminController implements Initializable {
     private TableColumn<Person,String> details;
 
     CustomAlerts alerts = new CustomAlerts();
-    CommonMethods commonMethods = new CommonMethods();
     CreatePDF createPDF = new CreatePDF();
     File adminDetails;
 
     String[] toWriteIntoPdf;
 
     //find admin details by search into main database
-    public void findAdminDetails(ActionEvent event){
+    public void findAdminDetails(){
         String adminId = adminid.getText();
 
         try {
@@ -114,7 +110,7 @@ public class FindAdminController implements Initializable {
         }
     }
 
-    public void generatePdfFile(ActionEvent event) throws Exception{
+    public void generatePdfFile() throws Exception{
         createPDF.createClientPDFFile("Admin", toWriteIntoPdf, adminDetails);
     }
 

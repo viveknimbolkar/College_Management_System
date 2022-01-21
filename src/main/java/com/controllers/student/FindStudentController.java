@@ -126,7 +126,7 @@ public class FindStudentController implements Initializable {
 
 
     //generate pdf file of student details
-    public void generatePdfFile(ActionEvent event) throws Exception{
+    public void generatePdfFile() throws Exception{
         FileChooser fileChooser = new FileChooser();
         //only this type of files are allow
         fileChooser.getExtensionFilters().addAll(

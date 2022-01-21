@@ -1,5 +1,6 @@
 package com.application;
 
+import com.menu.HeaderMenu;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
@@ -12,6 +13,22 @@ public class AdminSectionController {
 
     CommonMethods commonMethods = new CommonMethods();
     SceneLoader sceneLoader = new SceneLoader();
+    HeaderMenu menu = new HeaderMenu();
+
+    // menu options
+    public void openLink(){
+        menu.openLink();
+    }
+
+    // open about stage
+    public void aboutStage(){
+        menu.getAboutStage();
+    }
+
+    //open fee structure
+    public void feeStructure(){
+        menu.getFeeStructure();
+    }
 
     //go back to the main section
     public void goBack(ActionEvent event) throws Exception{
@@ -19,31 +36,31 @@ public class AdminSectionController {
     }
 
     //add admin scene
-    public void addAdminView(ActionEvent e) throws Exception{
+    public void addAdminView() throws Exception{
         Pane view = sceneLoader.getView("add-new-admin.fxml");
         borderPane.setCenter(view);
     }
 
     //update admin scene
-    public void updateAdminView(ActionEvent e) throws Exception{
+    public void updateAdminView() throws Exception{
         Pane view = sceneLoader.getView("update-admin.fxml");
         borderPane.setCenter(view);
     }
 
     //find admin scene
-    public void findAdminView(ActionEvent e) throws Exception{
+    public void findAdminView() throws Exception{
         Pane view = sceneLoader.getView("find-admin.fxml");
         borderPane.setCenter(view);
     }
 
     //remove admin scene
-    public void removeAdminView(ActionEvent e) throws Exception{
+    public void removeAdminView() throws Exception{
         Pane view = sceneLoader.getView("remove-admin.fxml");
         borderPane.setCenter(view);
     }
 
     //Insights scene
-    public void insightsView(ActionEvent e) throws Exception{
+    public void insightsView() throws Exception{
         Pane view = sceneLoader.getView("admin-dashboard.fxml");
         borderPane.setCenter(view);
     }

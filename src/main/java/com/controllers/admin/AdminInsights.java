@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class Insights implements Initializable {
+public class AdminInsights implements Initializable {
     @FXML
     private Label totalStudents, totalStaff, totalFeePaid;
     @FXML

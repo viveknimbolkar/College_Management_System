@@ -17,7 +17,6 @@ public class AllConstants {
     //size of main switch
     public final int MAIN_SWITCH_WIDTH = 600;
     public final int MAIN_SWITCH_HEIGHT = 400;
-    //size of main-switch.fxml i.e. Main section
 
     //This array use to write field name into pdf file
     public final String[] ADMIN_DATA_FIELDS = {
@@ -97,7 +96,7 @@ public class AllConstants {
       return FXCollections.observableArrayList(
               "OBC",
               "OPEN",
-              "EWS",
+              "VJNT",
               "SC",
               "ST",
               "OTHER"

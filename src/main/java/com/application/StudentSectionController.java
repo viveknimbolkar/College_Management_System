@@ -1,5 +1,6 @@
 package com.application;
 
+import com.menu.HeaderMenu;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
@@ -11,6 +12,17 @@ public class StudentSectionController {
    private BorderPane borderPane;
 
     CommonMethods commonMethods = new CommonMethods();
+    HeaderMenu menu = new HeaderMenu();
+
+    // open about stage
+    public void aboutStage(){
+        menu.getAboutStage();
+    }
+
+    //open fee structure
+    public void feeStructure(ActionEvent e){
+        menu.getFeeStructure(e);
+    }
 
     public void goBack(ActionEvent event) throws Exception{
         commonMethods.getMainSectionWindow(event,"main-switch.fxml");
@@ -48,6 +60,13 @@ public class StudentSectionController {
     public void feesStudentView(ActionEvent e) throws Exception{
         SceneLoader sceneLoader = new SceneLoader();
         Pane view = sceneLoader.getView("student-fees.fxml");
+        borderPane.setCenter(view);
+    }
+
+    //student insight scene
+    public void studentInsightView() throws Exception{
+        SceneLoader sceneLoader = new SceneLoader();
+        Pane view = sceneLoader.getView("student-insights.fxml");
         borderPane.setCenter(view);
     }
 }

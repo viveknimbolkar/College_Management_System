@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.student.StudentInsights">
+   <top>
+      <HBox prefHeight="100.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="100.0" prefWidth="225.0" style="-fx-background-color: #FEEA00;">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="225.0">
+                     <children>
+                        <Label fx:id="totalStudents" text="0">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label text="Total Students">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="100.0" prefWidth="225.0" style="-fx-background-color: #1EFFBC;">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="225.0">
+                     <children>
+                        <Label fx:id="cseStudents" text="0">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label text="CSE">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="100.0" prefWidth="225.0" style="-fx-background-color: #FC9E4F;">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="225.0">
+                     <children>
+                        <Label fx:id="itStudents" text="0" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label text="IT">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="100.0" prefWidth="225.0" style="-fx-background-color: #B6DCFE;">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="225.0">
+                     <children>
+                        <Label fx:id="extcStudents" text="0">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Label text="EXTC">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Pane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Pane prefHeight="100.0" prefWidth="225.0" style="-fx-background-color: #293241;">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="225.0">
+                           <children>
+                              <Label fx:id="mechanicalStudents" text="0" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label text="MECHANICAL" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane prefHeight="100.0" prefWidth="225.0" style="-fx-background-color: #FF0022;">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="225.0">
+                           <children>
+                              <Label fx:id="civilStudents" text="0" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label text="CIVIL" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane prefHeight="100.0" prefWidth="225.0" style="-fx-background-color: #B91372;">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="225.0">
+                           <children>
+                              <Label fx:id="architectureStudents" text="0" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Architecture" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane prefHeight="100.0" prefWidth="225.0" style="-fx-background-color: #360568;">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="225.0">
+                           <children>
+                              <Label text="loading..." textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Total Absent" textFill="WHITE">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+            </HBox>
+            <GridPane prefHeight="406.0" prefWidth="900.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <PieChart fx:id="genderRatioChart" prefWidth="450.0" title="Gender Ratio" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

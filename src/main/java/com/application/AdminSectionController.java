@@ -26,8 +26,8 @@ public class AdminSectionController {
     }
 
     //open fee structure
-    public void feeStructure(){
-        menu.getFeeStructure();
+    public void feeStructure(ActionEvent e){
+        menu.getFeeStructure(e);
     }
 
     //go back to the main section

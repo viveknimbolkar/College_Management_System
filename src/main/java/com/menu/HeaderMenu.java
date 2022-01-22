@@ -30,9 +30,8 @@ public class HeaderMenu {
         }
     }
 
-    // open about stage
-    // TODO: fee structure window not opening
-    public void getFeeStructure(){
+    // open fee structure stage
+    public void getFeeStructure(ActionEvent event){
         try {
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("fee-structure.fxml"));
@@ -40,7 +39,7 @@ public class HeaderMenu {
             stage.setResizable(false);
             stage.setX(450);
             stage.setY(250);
-            stage.setTitle("Student Fee Structure");
+            stage.setTitle("Fee Structure");
             stage.setScene(scene);
             stage.show();
         }catch (Exception ex){

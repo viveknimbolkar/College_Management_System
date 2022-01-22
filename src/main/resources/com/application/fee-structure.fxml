@@ -1,26 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.menu.HeaderMenu">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.AdminSectionController">
    <children>
-      <Label layoutX="199.0" layoutY="14.0" text="Fee Structure" textFill="#0a39f0">
+      <Label layoutX="187.0" layoutY="29.0" text="Fee Structure" textFill="#0585f7">
          <font>
-            <Font name="System Bold" size="26.0" />
+            <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <TableView layoutX="25.0" layoutY="62.0" prefHeight="300.0" prefWidth="550.0">
-        <columns>
-          <TableColumn prefWidth="128.0" text="Cast" />
-          <TableColumn prefWidth="119.0" text="Year" />
-            <TableColumn prefWidth="146.0" text="Branch" />
-            <TableColumn prefWidth="156.0" text="Fee" />
-        </columns>
-      </TableView>
+      <Label layoutX="59.0" layoutY="110.0" text="CAST">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="143.0" text="OPEN">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="178.0" text="OBC">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="218.0" text="SC">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="253.0" text="ST">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="283.0" text="VJNT">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="318.0" text="OTHER">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="161.0" layoutY="110.0" text="First Year">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="269.0" layoutY="110.0" text="Second Year">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="378.0" layoutY="110.0" text="Third Year">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="479.0" layoutY="110.0" text="Fourth Year">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="173.0" layoutY="143.0" text="1,20,568" />
+      <Label layoutX="173.0" layoutY="178.0" text="89,000" />
+      <Label layoutX="173.0" layoutY="218.0" text="7,000" />
+      <Label layoutX="173.0" layoutY="253.0" text="5,500" />
+      <Label layoutX="173.0" layoutY="283.0" text="576" />
+      <Label layoutX="173.0" layoutY="318.0" text="1,45,000" />
+      <Label layoutX="283.0" layoutY="141.0" text="1,10,000" />
+      <Label layoutX="283.0" layoutY="176.0" text="86,000" />
+      <Label layoutX="283.0" layoutY="216.0" text="5,500" />
+      <Label layoutX="283.0" layoutY="251.0" text="576" />
+      <Label layoutX="283.0" layoutY="281.0" text="245" />
+      <Label layoutX="283.0" layoutY="316.0" text="1,45,000" />
+      <Label layoutX="393.0" layoutY="140.0" text="1,00,00" />
+      <Label layoutX="393.0" layoutY="175.0" text="85,000" />
+      <Label layoutX="393.0" layoutY="215.0" text="576" />
+      <Label layoutX="393.0" layoutY="250.0" text="200" />
+      <Label layoutX="393.0" layoutY="280.0" text="100" />
+      <Label layoutX="393.0" layoutY="315.0" text="1,45,000" />
+      <Label layoutX="489.0" layoutY="143.0" text="96,000" />
+      <Label layoutX="489.0" layoutY="178.0" text="85,000" />
+      <Label layoutX="489.0" layoutY="218.0" text="100" />
+      <Label layoutX="489.0" layoutY="253.0" text="100" />
+      <Label layoutX="489.0" layoutY="283.0" text="100" />
+      <Label layoutX="489.0" layoutY="318.0" text="1,45,000" />
+      <Separator layoutX="45.0" layoutY="130.0" prefHeight="6.0" prefWidth="533.0" />
+      <Separator layoutX="133.0" layoutY="110.0" orientation="VERTICAL" prefHeight="241.0" prefWidth="1.0" />
    </children>
 </Pane>

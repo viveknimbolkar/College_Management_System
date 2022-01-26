@@ -11,6 +11,21 @@ public class HeaderMenu {
 
     CustomAlerts alerts = new CustomAlerts();
 
+    // open cse exam result form stage
+    public void getExamResultSemesterwiseStage(String sceneName, String sceneTitle, int width, int height){
+        try {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource(sceneName));
+            Scene scene = new Scene(fxmlLoader.load(), width, height);
+            stage.setResizable(false);
+            stage.setTitle(sceneTitle);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception ex){
+            ex.printStackTrace();
+//            alerts.errorAlert("Something went wrong.\nPlease try again!");
+        }
+    }
 
     // open about stage
     public void getAboutStage(){

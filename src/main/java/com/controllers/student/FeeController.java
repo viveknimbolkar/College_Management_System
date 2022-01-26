@@ -24,7 +24,6 @@ import java.util.ResourceBundle;
 
 public class FeeController implements Initializable {
     Connection connection = DBConnection.getDBConnection();
-    CommonMethods commonMethods = new CommonMethods();
     AllConstants constants = new AllConstants();
     CustomAlerts alert = new CustomAlerts();
     Validation validation = new Validation();
@@ -66,6 +65,22 @@ public class FeeController implements Initializable {
            //validate the user data if any entry found then break the operation
             if (!validation.validateFieldData(studentFeeInfo))
                 return;
+
+            //check for student in student database
+//            String findStudentQuery = "SELECT * FROM `student` WHERE student_id="+studentFeeInfo[1];
+//            System.out.println(findStudentQuery);
+//            ResultSet resultSet = connection.createStatement().executeQuery(findStudentQuery);
+//
+//            if (resultSet.next()){
+//                System.out.println(resultSet.getString("student_id"));
+//                if (resultSet.getString(17).equals(studentFeeInfo[1])){
+//                    System.out.println("Student Found");
+//                }else {
+//                    System.out.println("Not found");
+//                }
+//            }else {
+//                System.out.println("error in execute");
+//            }
 
             LocalDate currentDate = LocalDate.now();
             //save the fees data into database
@@ -115,16 +130,16 @@ public class FeeController implements Initializable {
             ObservableList<StudentFee> observableList = FXCollections.observableArrayList(studentFeeList);
             student_id.setCellValueFactory(new PropertyValueFactory<>("studentId"));
             student_name.setCellValueFactory(new PropertyValueFactory<>("studentName"));
-            student_branch.setCellValueFactory(new PropertyValueFactory<>("feePaid"));
-            student_semester.setCellValueFactory(new PropertyValueFactory<>("branch"));
-            student_education_year.setCellValueFactory(new PropertyValueFactory<>("semester"));
-            fee_paid.setCellValueFactory(new PropertyValueFactory<>("educationYear"));
+            fee_paid.setCellValueFactory(new PropertyValueFactory<>("feePaid"));
+            student_branch.setCellValueFactory(new PropertyValueFactory<>("branch"));
+            student_semester.setCellValueFactory(new PropertyValueFactory<>("semester"));
+            student_education_year.setCellValueFactory(new PropertyValueFactory<>("educationYear"));
             date.setCellValueFactory(new PropertyValueFactory<>("date"));
 
             feeTable.setItems(observableList);
 
         }catch (Exception e){
-            e.printStackTrace();
+            //e.printStackTrace();
             alert.errorAlert("Something went Wrong\nPlease try again!");
         }
     }

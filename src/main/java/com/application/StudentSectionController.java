@@ -14,6 +14,45 @@ public class StudentSectionController {
     CommonMethods commonMethods = new CommonMethods();
     HeaderMenu menu = new HeaderMenu();
 
+    // get cse first sem result form stage
+    public void getCSEFirstSemStage(){
+        menu.getExamResultSemesterwiseStage("result/cse/cse-first-sem-result.fxml","FIRST SEMESTER EXAM RESULT", 400, 600);
+    }
+
+    // get cse second sem result form stage
+    public void getCSESecondSemStage(){
+        menu.getExamResultSemesterwiseStage("result/cse/cse-second-sem-result.fxml","SECOND SEMESTER RESULT ", 400, 650);
+    }
+
+    // get cse second sem result form stage
+    public void getCSEThirdSemStage(){
+        menu.getExamResultSemesterwiseStage("result/cse/cse-third-sem-result.fxml","THIRD SEMESTER RESULT ", 400, 650);
+    }
+
+    // get cse second sem result form stage
+    public void getCSEFourthSemStage(){
+        menu.getExamResultSemesterwiseStage("result/cse/cse-fourth-sem-result.fxml","FOURTH SEMESTER RESULT ", 400, 650);
+    }
+
+    // get cse second sem result form stage
+    public void getCSEFifthSemStage(){
+        menu.getExamResultSemesterwiseStage("result/cse/cse-fifth-sem-result.fxml","FIFTH SEMESTER RESULT ", 400, 650);
+    }
+
+    // get cse second sem result form stage
+    public void getCSESixthSemStage(){
+        menu.getExamResultSemesterwiseStage("result/cse/cse-sixth-sem-result.fxml","SIXTH SEMESTER RESULT ", 400, 650);
+    }
+
+    // get cse second sem result form stage
+    public void getCSESeventhSemStage(){
+        menu.getExamResultSemesterwiseStage("result/cse/cse-seventh-sem-result.fxml","SEVENTH SEMESTER RESULT ", 400, 650);
+    }
+
+    // get cse second sem result form stage
+    public void getCSEEightSemStage(){
+        menu.getExamResultSemesterwiseStage("result/cse/cse-eight-sem-result.fxml","EIGHT SEMESTER RESULT ", 400, 650);
+    }
     // open about stage
     public void aboutStage(){
         menu.getAboutStage();

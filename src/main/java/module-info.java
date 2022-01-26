@@ -26,4 +26,6 @@ module com.college_management_system {
     opens com.services to javafx.fxml;
     exports com.util;
     opens com.util to javafx.fxml;
+    exports com.examresult.cse;
+    opens com.examresult.cse to javafx.fxml;
 }

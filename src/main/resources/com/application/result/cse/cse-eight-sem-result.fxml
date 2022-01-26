@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0"
+            prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.examresult.cse.CSEEightSemController">
+   <top>
+      <Label text="EIGHT SEMESTER EXAM RESULT FORM" textAlignment="CENTER" textFill="#4a58ee" wrapText="true"
+             BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <Pane prefHeight="700.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+
+            <TextField fx:id="studentName" layoutX="24.0" layoutY="46.0" prefHeight="35.0" />
+            <Label layoutX="24.0" layoutY="22.0" text="Student Name:" />
+            <Label layoutX="217.0" layoutY="22.0" text="Student ID :-" />
+            <Label layoutX="23.0" layoutY="97.0" text="Semester :-" />
+            <ChoiceBox fx:id="studentSemester" layoutX="23.0" layoutY="121.0" prefHeight="35.0" prefWidth="150.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ChoiceBox>
+            <Label layoutX="96.0" layoutY="231.0" text="Engineering M-1 :-" />
+            <TextField fx:id="chemistryMarks" layoutX="242.0" layoutY="227.0" prefHeight="24.0" prefWidth="100.0" />
+            <Label layoutX="82.0" layoutY="192.0" text="Subjects" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="196.0" layoutY="192.0" text="Marks Obtained" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Separator layoutX="-2.0" layoutY="190.0" prefWidth="400.0" />
+            <Label layoutX="70.0" layoutY="270.0" text="Engineering Physics :-" />
+            <TextField fx:id="electricalEnggMarks" layoutX="242.0" layoutY="266.0" prefHeight="24.0" prefWidth="100.0" />
+            <Label layoutX="48.0" layoutY="310.0" text="Engineering Mechanics :-" />
+            <TextField fx:id="engineeringGraphicsMarks" layoutX="242.0" layoutY="306.0" prefHeight="24.0" prefWidth="100.0" />
+            <Label layoutX="41.0" layoutY="347.0" text="Computer Programming :-" />
+            <TextField fx:id="cSkillMarks" layoutX="242.0" layoutY="343.0" prefHeight="24.0" prefWidth="100.0" />
+            <Label layoutX="75.0" layoutY="387.0" text="Workshop Practice :-" />
+            <TextField fx:id="chemistryLabMarks" layoutX="242.0" layoutY="383.0" prefHeight="24.0" prefWidth="100.0" />
+            <Label layoutX="39.0" layoutY="420.0" text="Engineering Physics Lab :-" />
+            <TextField fx:id="electricalEnggLabMarks" layoutX="242.0" layoutY="416.0" prefHeight="24.0" prefWidth="100.0" />
+            <Label layoutX="19.0" layoutY="453.0" text="Engineering Mechanics Lab :-" />
+            <TextField fx:id="enggGraphicsLab" layoutX="242.0" layoutY="449.0" prefHeight="24.0" prefWidth="100.0" />
+            <Spinner fx:id="studentID" layoutX="214.0" layoutY="46.0" prefHeight="35.0" />
+         <Label layoutX="13.0" layoutY="490.0" text="Computer Programming Lab :-" />
+         <TextField fx:id="enggGraphicsLab1" layoutX="243.0" layoutY="486.0" prefHeight="24.0" prefWidth="100.0" />
+      </Pane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="56.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#saveResult" prefHeight="35.0" style="-fx-background-color: green;" text="Save Result" textFill="WHITE">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#resetAllFields" prefHeight="35.0" style="-fx-background-color: red;" text="Reset" textFill="WHITE">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+      </HBox>
+   </bottom>
+</BorderPane>

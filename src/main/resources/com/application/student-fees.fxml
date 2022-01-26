@@ -164,8 +164,8 @@
             </HBox>
             <TableView fx:id="feeTable" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn fx:id="student_name" prefWidth="125.0" text="Student Name" />
-                <TableColumn fx:id="student_id" prefWidth="133.0" text="Student ID" />
+                <TableColumn fx:id="student_name" prefWidth="125.0" text="Student ID" />
+                <TableColumn fx:id="student_id" prefWidth="133.0" text="Student Name" />
                   <TableColumn fx:id="fee_paid" prefWidth="118.0" text="Fee Paid" />
                   <TableColumn fx:id="student_branch" minWidth="5.0" prefWidth="81.0" text="Branch" />
                   <TableColumn fx:id="student_semester" prefWidth="125.0" text="Semester" />

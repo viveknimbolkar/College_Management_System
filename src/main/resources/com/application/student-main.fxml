@@ -94,6 +94,82 @@
                     <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="Fees Structure" />
                   </items>
                 </Menu>
+                  <Menu mnemonicParsing="false" text="Publish Result">
+                     <items>
+                        <Menu mnemonicParsing="false" text="Computer Science &amp; Engineering">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#getCSEFirstSemStage" text="1. First Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#getCSESecondSemStage" text="2. Second Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#getCSEThirdSemStage" text="3. Third Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#getCSEFourthSemStage" text="4. Fourth Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#getCSEFifthSemStage" text="5. Five Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#getCSESixthSemStage" text="6. Six Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#getCSESeventhSemStage" text="7. Seven Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#getCSEEightSemStage" text="8. Eight Semester" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Information Technology">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="1. First Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="2. Second Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="3. Third Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="4. Fourth Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="5. Five Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="6. Six Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="7. Seven Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="8. Eight Semester" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Electronics &amp; Telecommunication">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="1. First Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="2. Second Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="3. Third Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="4. Fourth Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="5. Five Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="6. Six Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="7. Seven Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="8. Eight Semester" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Mechanical Engineering">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="1. First Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="2. Second Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="3. Third Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="4. Fourth Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="5. Five Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="6. Six Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="7. Seven Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="8. Eight Semester" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Civil ">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="1. First Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="2. Second Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="3. Third Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="4. Fourth Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="5. Five Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="6. Six Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="7. Seven Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="8. Eight Semester" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Architecture">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="1. First Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="2. Second Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="3. Third Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="4. Fourth Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="5. Five Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="6. Six Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="7. Seven Semester" />
+                              <MenuItem mnemonicParsing="false" onAction="#feeStructure" text="8. Eight Semester" />
+                           </items>
+                        </Menu>
+                     </items>
+                  </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#aboutStage" text="About" />

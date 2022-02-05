@@ -101,18 +101,15 @@ public class NotificationController implements Initializable {
         try {
             String notifiyid = notificationID.getValue();
             String queryDeleteNotificataion = "DELETE FROM `notification` WHERE id="+notifiyid;
-            System.out.println(queryDeleteNotificataion);
             Statement statement = connection.createStatement();
             int result = statement.executeUpdate(queryDeleteNotificataion);
-
             if (result > 0){
                 alerts.infoAlert("Notifications deleted successfully!");
                 allId.remove(notifiyid);
-            }else {
+            }else
                 alerts.warningAlert("Notification is not deleted!\nPlease try again!");
-            }
         }catch (Exception e){
-            e.printStackTrace();
+//            e.printStackTrace();
             alerts.errorAlert("Something went wrong.\nPlease try again!");
         }
     }
@@ -130,7 +127,6 @@ public class NotificationController implements Initializable {
         );
         sendTo.setItems(sendToList);
         sendTo.show();
-
         notificationID.setItems(notificationObservableID);
         notificationID.show();
     }

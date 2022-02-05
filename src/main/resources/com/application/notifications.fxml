@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.admin.NotificationController">
+   <top>
+      <Label text="SEND NOTIFICATIONS" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+         <BorderPane.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </BorderPane.margin>
+      </Label>
+   </top>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" tabMinHeight="35.0" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Send Notification">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="191.0" layoutY="27.0" text="Send Notifications to :-">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="sendTo" layoutX="385.0" layoutY="20.0" prefHeight="35.0" prefWidth="360.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ChoiceBox>
+                        <TextArea fx:id="notification" layoutX="33.0" layoutY="74.0" prefHeight="373.0" prefWidth="819.0" promptText="Type notification here..." wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextArea>
+                        <Button layoutX="315.0" layoutY="460.0" mnemonicParsing="false" onAction="#sendNotification" prefHeight="35.0" style="-fx-background-color: green;" text="Send Notification" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="489.0" layoutY="460.0" mnemonicParsing="false" onAction="#resetNotificationField" prefHeight="35.0" style="-fx-background-color: red;" text="Reset" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </Pane>
+               </content></Tab>
+           <Tab onSelectionChanged="#updateDeleteNotificationSection" text="Delete Notifications">
+              <content>
+                 <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="387.0" layoutY="9.0" text="All Notifications">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="186.0" layoutY="456.0" text="Select Notification ID :-">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="notificationID" layoutX="381.0" layoutY="450.0" prefHeight="35.0" prefWidth="100.0" />
+                        <Button layoutX="499.0" layoutY="450.0" mnemonicParsing="false" onAction="#deleteNotification" prefHeight="35.0" style="-fx-background-color: red;" text="Delete Notification" textFill="WHITE">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <TableView fx:id="notificationTable" layoutX="15.0" layoutY="47.0" prefHeight="380.0" prefWidth="872.0">
+                          <columns>
+                            <TableColumn fx:id="id" prefWidth="67.0" text="ID" />
+                            <TableColumn fx:id="notificationColumn" prefWidth="489.0" text="Notification" />
+                              <TableColumn fx:id="department" prefWidth="166.0" text="Department" />
+                              <TableColumn fx:id="date" prefWidth="149.0" text="Date" />
+                          </columns>
+                        </TableView>
+                     </children>
+                 </Pane>
+              </content>
+           </Tab>
+        </tabs>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TabPane>
+   </center>
+</BorderPane>

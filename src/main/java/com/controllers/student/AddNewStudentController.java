@@ -2,13 +2,12 @@ package com.controllers.student;
 
 import com.application.CommonMethods;
 import com.constant.AllConstants;
+import com.database.DBConnection;
 import com.util.CustomAlerts;
 import com.util.Validation;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -23,6 +22,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class AddNewStudentController implements Initializable {
@@ -32,6 +34,7 @@ public class AddNewStudentController implements Initializable {
     CommonMethods commonMethods = new CommonMethods();
     CustomAlerts alerts = new CustomAlerts();
     Validation validation = new Validation();
+    CustomAlerts alert = new CustomAlerts();
     File studentImg;
 
     @FXML
@@ -89,15 +92,34 @@ public class AddNewStudentController implements Initializable {
             //if student data is valid and no duplicate record found then add studentdata into database
             if (isStudentDataValid && !duplicateEntry){
                 try {
+                    // make entry into fee table
+                    LocalDate currentDate = LocalDate.now();
+                    Connection connection = DBConnection.getDBConnection();
+                    String saveFeesQuery = "INSERT INTO `fees` (`student_name`, `student_id`, `fee_paid`, `branch`, " +
+                            "`semester`, `education_year`, `date`) VALUES (?, ?, ?, ?, ?, ?,'"+currentDate+"')";
+                    PreparedStatement prepStmt = connection.prepareStatement(saveFeesQuery);
+
+                    prepStmt.setString(1,studentData[0]+studentData[1]+studentData[2]);
+                    prepStmt.setString(2,studentData[15]);
+                    prepStmt.setString(3,studentData[16]);
+                    prepStmt.setString(4,studentData[19]);
+                    prepStmt.setString(5,studentData[21]);
+                    prepStmt.setString(6,studentData[20]);
+
+                    int queryStatus = prepStmt.executeUpdate();
+                    if (queryStatus == 1){
+                        alert.infoAlert("Fee paid successfully!");
+                    }else {
+                        alert.warningAlert("Fees Not Paid. Try again!");
+                        return;
+                    }
+
                     //get image of student
                     FileInputStream fileInputStream = new FileInputStream(studentImg);
                     boolean addStudentData = commonMethods.addDataIntoRespectedDB("student", fileInputStream, studentData);
 
                     if (addStudentData){
-                        System.out.println("added");
-                        Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-                        successAlert.setContentText("Student Added Successfully!");
-                        successAlert.show();
+                        alerts.infoAlert("Student Added Successfully!");
                     }
                 }catch (Exception e){
                     //e.printStackTrace();

@@ -268,7 +268,7 @@
          <children>
             <Label text="UPDATE EXISTING ADMINISTRATOR" textAlignment="CENTER">
                <font>
-                  <Font size="26.0" />
+                  <Font name="System Bold" size="26.0" />
                </font>
                <VBox.margin>
                   <Insets left="220.0" />

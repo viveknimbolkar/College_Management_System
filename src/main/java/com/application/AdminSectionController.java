@@ -64,4 +64,10 @@ public class AdminSectionController {
         Pane view = sceneLoader.getView("admin-dashboard.fxml");
         borderPane.setCenter(view);
     }
+
+    //Notification scene
+    public void notificationView() throws Exception{
+        Pane view = sceneLoader.getView("notifications.fxml");
+        borderPane.setCenter(view);
+    }
 }

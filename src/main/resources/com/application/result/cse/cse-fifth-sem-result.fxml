@@ -13,12 +13,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0"
-            prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.examresult.cse.CSEFifthSemController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.examresult.cse.CSEFifthSemController">
    <top>
-      <Label text="FIFTH SEMESTER EXAM RESULT FORM" textAlignment="CENTER" textFill="#4a58ee" wrapText="true"
-             BorderPane.alignment="CENTER">
+      <Label text="FIFTH SEMESTER EXAM RESULT FORM" textAlignment="CENTER" textFill="#4a58ee" wrapText="true" BorderPane.alignment="CENTER">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -39,7 +36,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ChoiceBox>
-            <Label layoutX="96.0" layoutY="231.0" text="Engineering M-1 :-" />
+            <Label layoutX="96.0" layoutY="231.0" text="Database Management Systems :-" />
             <TextField fx:id="chemistryMarks" layoutX="242.0" layoutY="227.0" prefHeight="24.0" prefWidth="100.0" />
             <Label layoutX="82.0" layoutY="192.0" text="Subjects" textFill="RED">
                <font>
@@ -52,17 +49,17 @@
                </font>
             </Label>
             <Separator layoutX="-2.0" layoutY="190.0" prefWidth="400.0" />
-            <Label layoutX="70.0" layoutY="270.0" text="Engineering Physics :-" />
+            <Label layoutX="70.0" layoutY="270.0" text="Compiler Design :-" />
             <TextField fx:id="electricalEnggMarks" layoutX="242.0" layoutY="266.0" prefHeight="24.0" prefWidth="100.0" />
-            <Label layoutX="48.0" layoutY="310.0" text="Engineering Mechanics :-" />
+            <Label layoutX="48.0" layoutY="310.0" text="Computer Organization &amp; Architecture :-" />
             <TextField fx:id="engineeringGraphicsMarks" layoutX="242.0" layoutY="306.0" prefHeight="24.0" prefWidth="100.0" />
-            <Label layoutX="41.0" layoutY="347.0" text="Computer Programming :-" />
+            <Label layoutX="41.0" layoutY="347.0" text="Data Science And Statistics :-" />
             <TextField fx:id="cSkillMarks" layoutX="242.0" layoutY="343.0" prefHeight="24.0" prefWidth="100.0" />
-            <Label layoutX="75.0" layoutY="387.0" text="Workshop Practice :-" />
+            <Label layoutX="75.0" layoutY="387.0" text="Soft Skills &amp; Interpersonal Communication :-" />
             <TextField fx:id="chemistryLabMarks" layoutX="242.0" layoutY="383.0" prefHeight="24.0" prefWidth="100.0" />
-            <Label layoutX="39.0" layoutY="420.0" text="Engineering Physics Lab :-" />
+            <Label layoutX="39.0" layoutY="420.0" text="Database Management Systems - LAB :-" />
             <TextField fx:id="electricalEnggLabMarks" layoutX="242.0" layoutY="416.0" prefHeight="24.0" prefWidth="100.0" />
-            <Label layoutX="19.0" layoutY="453.0" text="Engineering Mechanics Lab :-" />
+            <Label layoutX="19.0" layoutY="453.0" text="Compiler Design - LAB :-" />
             <TextField fx:id="enggGraphicsLab" layoutX="242.0" layoutY="449.0" prefHeight="24.0" prefWidth="100.0" />
             <Spinner fx:id="studentID" layoutX="214.0" layoutY="46.0" prefHeight="35.0" />
          <Label layoutX="13.0" layoutY="490.0" text="Computer Programming Lab :-" />

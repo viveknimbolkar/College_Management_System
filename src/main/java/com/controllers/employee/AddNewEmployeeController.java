@@ -76,14 +76,14 @@ public class AddNewEmployeeController implements Initializable {
 
             //validate student data and also check for duplicate entry in student table
             boolean isStudentDataValid = validation.validateFieldData(studentData);
-            boolean duplicateEntry = commonMethods.checkForDuplicateEntry("employee",studentData[3]);
+            boolean duplicateEntry = commonMethods.checkForDuplicateEntry("com/application/employee",studentData[3]);
 
             //if student data is valid and no duplicate record found then add studentdata into database
             if (isStudentDataValid && !duplicateEntry){
                 try {
                     //get image of student
                     FileInputStream fileInputStream = new FileInputStream(employeeImg);
-                    boolean addStudentData = commonMethods.addDataIntoRespectedDB("employee", fileInputStream, studentData);
+                    boolean addStudentData = commonMethods.addDataIntoRespectedDB("com/application/employee", fileInputStream, studentData);
 
                     if (addStudentData){
                         alerts.infoAlert("Employee Added Successfully!");

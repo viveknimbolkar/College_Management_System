@@ -54,7 +54,7 @@ public class CommonMethods {
         String query = switch (forUser) {
             case "admin" -> "SELECT * FROM `admin` WHERE email='" + email + "'";
             case "student" -> "SELECT * FROM `student` WHERE email='" + email + "'";
-            case "employee" -> "SELECT * FROM `employee` WHERE email='" + email + "'";
+            case "com/application/employee" -> "SELECT * FROM `employee` WHERE email='" + email + "'";
             default -> "";
         };
 
@@ -83,7 +83,7 @@ public class CommonMethods {
                     " `semester`, `gender`, `dob`, `student_img`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-            case "employee" -> "INSERT INTO `employee` (`firstname`, `middlename`, `lastname`, `email`, " +
+            case "com/application/employee" -> "INSERT INTO `employee` (`firstname`, `middlename`, `lastname`, `email`, " +
                     "`phoneno`, `homeaddress`, `city`, `district`, `country`, `taluka`, `qualification`, `cast`, " +
                     "`dob`, `experience`, `pincode`, `employee_id`, `salary`, `category`, `teaching_subject`, " +
                     "`gender`, `state`, `employee_img`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?," +
@@ -101,7 +101,7 @@ public class CommonMethods {
         switch (client) {
             case "admin" -> preparedStatement.setBinaryStream(20, clientImage);
             case "student" -> preparedStatement.setBinaryStream(25, clientImage);
-            case "employee" -> preparedStatement.setBinaryStream(22, clientImage);
+            case "com/application/employee" -> preparedStatement.setBinaryStream(22, clientImage);
         }
 
         int result = preparedStatement.executeUpdate();
@@ -115,7 +115,7 @@ public class CommonMethods {
         String deleteQuery = switch (client) {
             case "admin" -> "DELETE FROM `admin` WHERE admin_id='" + clientId + "'";
             case "student" -> "DELETE FROM `student` WHERE student_id='" + clientId + "'";
-            case "employee" -> "DELETE FROM `employee` WHERE employee_id='" + clientId + "'";
+            case "com/application/employee" -> "DELETE FROM `employee` WHERE employee_id='" + clientId + "'";
             default -> "";
         };
 
@@ -153,7 +153,7 @@ public class CommonMethods {
                     "`category`=?, `cast`=?, `fee`=?, `state`=?, `mht_cet_percentile`=?, `branch`=?, " +
                     "`education_year`=?, `semester`=?, `student_img`=? WHERE `student_id`='" + clientID + "'";
 
-            case "employee" -> "UPDATE `employee` SET `firstname`=?, `middlename`=?, `lastname`=?, `email`=?, " +
+            case "com/application/employee" -> "UPDATE `employee` SET `firstname`=?, `middlename`=?, `lastname`=?, `email`=?, " +
                     "`phoneno`=?, `homeaddress`=?, " +
                     "`city`=?, `district`=?, `country`=?, `taluka`=?, `qualification`=?, `cast`=?, " +
                     "`experience`=?, " +
@@ -173,7 +173,7 @@ public class CommonMethods {
             switch (clientname) {
                 case "admin" -> preparedStatement.setBinaryStream(17, clientImg);
                 case "student" -> preparedStatement.setBinaryStream(22, clientImg);
-                case "employee" -> preparedStatement.setBinaryStream(19, clientImg);
+                case "com/application/employee" -> preparedStatement.setBinaryStream(19, clientImg);
             }
 
             int finalResult = preparedStatement.executeUpdate();

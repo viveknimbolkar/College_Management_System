@@ -42,4 +42,18 @@ public class EmployeeSectionController {
         Pane view = sceneLoader.getView("update-employee.fxml");
         borderPane.setCenter(view);
     }
+
+    //assign subject to the faculty
+    public void assignSubjectView(ActionEvent e) throws Exception{
+        SceneLoader sceneLoader = new SceneLoader();
+        Pane view = sceneLoader.getView("assign-subject.fxml");
+        borderPane.setCenter(view);
+    }
+
+    //subject management
+    public void subjectView(ActionEvent e) throws Exception{
+        SceneLoader sceneLoader = new SceneLoader();
+        Pane view = sceneLoader.getView("subject.fxml");
+        borderPane.setCenter(view);
+    }
 }

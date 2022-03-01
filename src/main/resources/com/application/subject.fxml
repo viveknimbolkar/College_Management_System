@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.employee.SubjectController">
+   <top>
+      <Label text="Subject Management" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </Label>
+   </top>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox prefHeight="577.0" prefWidth="900.0">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Subject Name:-" />
+                        <TextField fx:id="subjectName" layoutX="14.0" layoutY="34.0" prefHeight="35.0" prefWidth="200.0" />
+                        <Label layoutX="239.0" layoutY="14.0" text="Subject Code:-" />
+                        <TextField fx:id="subjectCode" layoutX="239.0" layoutY="34.0" prefHeight="35.0" prefWidth="200.0" />
+                        <Label layoutX="457.0" layoutY="14.0" text="Branch:-" />
+                        <Label layoutX="680.0" layoutY="14.0" text="Semester:-" />
+                        <ChoiceBox fx:id="branch" layoutX="457.0" layoutY="34.0" prefHeight="35.0" prefWidth="200.0" />
+                        <ChoiceBox fx:id="semester" layoutX="680.0" layoutY="34.0" prefHeight="35.0" prefWidth="200.0" />
+                        <Label layoutX="14.0" layoutY="81.0" text="Total Theory Marks:-" />
+                        <TextField fx:id="theoryMarks" layoutX="14.0" layoutY="101.0" prefHeight="35.0" prefWidth="200.0" />
+                        <Label layoutX="239.0" layoutY="81.0" text="Total Practical Marks:-" />
+                        <TextField fx:id="practicalMarks" layoutX="239.0" layoutY="101.0" prefHeight="35.0" prefWidth="200.0" />
+                        <Button layoutX="680.0" layoutY="96.0" mnemonicParsing="false" onAction="#addSubject" prefHeight="35.0" style="-fx-background-color: green;" text="Add Subject" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="791.0" layoutY="96.0" mnemonicParsing="false" onAction="#reset" prefHeight="35.0" style="-fx-background-color: red;" text="Reset" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Label layoutX="457.0" layoutY="80.0" text="Subject Type:" />
+                        <ChoiceBox fx:id="subjectType" layoutX="457.0" layoutY="101.0" prefHeight="35.0" prefWidth="200.0" />
+                     </children>
+                  </AnchorPane>
+                  <TableView fx:id="subjectTable" prefHeight="400.0" prefWidth="900.0">
+                    <columns>
+                      <TableColumn fx:id="scode" prefWidth="101.0" text="Subject Code" />
+                      <TableColumn fx:id="sname" prefWidth="209.0" text="Subject Name" />
+                        <TableColumn fx:id="stype" prefWidth="101.0" text="Subject Type" />
+                        <TableColumn fx:id="sbranch" prefWidth="124.0" text="Branch" />
+                        <TableColumn fx:id="ssemester" prefWidth="101.0" text="Semester" />
+                        <TableColumn fx:id="stheoryMarks" prefWidth="122.0" text="Theory Marks" />
+                        <TableColumn fx:id="spracticalMarks" prefWidth="129.0" text="Practical Marks" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

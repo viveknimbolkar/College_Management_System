@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -96,7 +97,7 @@ public class MainController{
             con.close();
 
         }catch (Exception ex){
-            //ex.printStackTrace();
+            ex.printStackTrace();
             alerts.errorAlert("Internal Server Error!\n Please try again later.");
         }
     }
@@ -118,5 +119,12 @@ public class MainController{
     }
 
     public void enterKeyPressed(KeyEvent keyEvent) {
+        if (email.getText().equals("") || pwd.getText().equals("") && keyEvent.getCode().equals(KeyCode.ENTER)){
+            alerts.warningAlert("Please filled up complete form!");
+        return;
+        }else if (keyEvent.getCode().equals(KeyCode.ENTER)){
+            System.out.println("in action");
+        }
+
     }
 }

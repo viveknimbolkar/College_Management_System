@@ -1,11 +1,10 @@
 package com.controllers.admin;
 
 import com.beans.Notification;
-import com.beans.StudentFee;
 import com.database.DBConnection;
+
 import com.util.CustomAlerts;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -45,7 +44,8 @@ public class NotificationController implements Initializable {
             if (notification.getText().isEmpty()) {
                 alerts.warningAlert("Notification should not be empty!");
                 return;
-            }else if (sendTo.getItems().isEmpty()) {
+            }
+            if (sendTo.getItems().isEmpty()) {
                 alerts.warningAlert("Choose the department to send!");
                 return;
             }
@@ -59,7 +59,6 @@ public class NotificationController implements Initializable {
                 alerts.infoAlert("Notification Send Successfully!");
             else
                 alerts.errorAlert("Failed to send notification.\nPlease try again!");
-            connection.close();
         }catch (Exception e){
             e.printStackTrace();
             alerts.errorAlert("Something went wrong.\nPlease try again!");
@@ -109,7 +108,7 @@ public class NotificationController implements Initializable {
             }else
                 alerts.warningAlert("Notification is not deleted!\nPlease try again!");
         }catch (Exception e){
-//            e.printStackTrace();
+            e.printStackTrace();
             alerts.errorAlert("Something went wrong.\nPlease try again!");
         }
     }

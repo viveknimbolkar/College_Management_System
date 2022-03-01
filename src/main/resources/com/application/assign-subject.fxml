@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.employee.AssignSubject">
+   <top>
+      <Label text="Assign Subjects" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <ScrollPane prefHeight="600.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox prefHeight="600.0" prefWidth="900.0">
+               <children>
+                  <FlowPane prefHeight="139.0" prefWidth="900.0">
+                     <children>
+                        <Label text="Faculty Name: ">
+                           <FlowPane.margin>
+                              <Insets left="10.0" right="5.0" top="5.0" />
+                           </FlowPane.margin>
+                        </Label>
+                        <ChoiceBox fx:id="facultyName" prefHeight="35.0" prefWidth="200.0" />
+                        <Label text="Subject:">
+                           <FlowPane.margin>
+                              <Insets left="10.0" right="10.0" top="5.0" />
+                           </FlowPane.margin>
+                        </Label>
+                        <TextField prefHeight="35.0">
+                           <FlowPane.margin>
+                              <Insets left="5.0" right="5.0" top="10.0" />
+                           </FlowPane.margin>
+                        </TextField>
+                        <Label text="Branch:">
+                           <FlowPane.margin>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </FlowPane.margin>
+                        </Label>
+                        <ChoiceBox fx:id="branch" prefHeight="35.0" prefWidth="200.0" />
+                        <Label text="Semester:">
+                           <FlowPane.margin>
+                              <Insets left="10.0" right="40.0" top="20.0" />
+                           </FlowPane.margin>
+                        </Label>
+                        <ChoiceBox fx:id="semester" prefHeight="35.0" prefWidth="200.0">
+                           <FlowPane.margin>
+                              <Insets top="20.0" />
+                           </FlowPane.margin>
+                        </ChoiceBox>
+                        <Button mnemonicParsing="false" onAction="#assignSubject" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: green;" text="Assign" textFill="WHITE">
+                           <FlowPane.margin>
+                              <Insets left="10.0" top="20.0" />
+                           </FlowPane.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#reset" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: red;" text="Reset" textFill="WHITE">
+                           <FlowPane.margin>
+                              <Insets left="5.0" top="20.0" />
+                           </FlowPane.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </FlowPane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

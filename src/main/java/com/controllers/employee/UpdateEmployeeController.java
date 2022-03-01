@@ -161,7 +161,7 @@ public class UpdateEmployeeController implements Initializable {
             //insert data into main database
             try {
                 FileInputStream fileInputStream = new FileInputStream(tempemployeeImage);
-                boolean status = commonMethods.updateClientData("employee", fileInputStream, employeeData, employeeId);
+                boolean status = commonMethods.updateClientData("com/application/employee", fileInputStream, employeeData, employeeId);
                 //acknowledge user that data added successfully
                 if (status){
                     Alert successAlert = new Alert(Alert.AlertType.INFORMATION);

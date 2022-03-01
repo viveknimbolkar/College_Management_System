@@ -27,7 +27,7 @@ public class RemoveEmployeeController {
         alert.showAndWait();
         //if user press ok then delete reapective record
         if (alert.getResult() == ButtonType.YES){
-            commonMethods.removeClientDataFromDB("employee",employeeid);
+            commonMethods.removeClientDataFromDB("com/application/employee",employeeid);
         }
     }
 }
